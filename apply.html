@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>공공조달 무료 1차 진단 신청 | 늘동행 행정사사무소</title>
+<meta name="description" content="우리 회사 품목이 공공시장에서 얼마나 거래되는지, 조달청 데이터로 확인해 드립니다. 무료 1차 진단·입찰공고 알림 신청.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --paper:#FFFFFF; --ground:#F4F6F6;
+    --ink:#15232C; --ink-2:#44545E; --ink-3:#6B7A83;
+    --rule:#D6DDDC; --accent:#1D4E6E; --accent-2:#2A6B91; --accent-ink:#FFFFFF;
+    --gold:#8C6A26; --gold-bg:#FBF6EA;
+    --ok:#1D6B45; --ok-bg:#EEF7F1;
+    --serif:'Nanum Myeongjo', 'Nanum Myeongjo', serif;
+    --sans:'IBM Plex Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    --wrap:1040px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:var(--sans); font-size:16px; line-height:1.72; word-break:keep-all;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:var(--wrap); margin:0 auto; padding-inline:20px}
+  a{color:var(--accent)}
+
+  /* ── 상단 바 ── */
+  .topbar{background:var(--accent); color:#fff}
+  .topbar .wrap{display:flex; flex-wrap:wrap; gap:8px 18px; align-items:center;
+    justify-content:space-between; padding-block:10px; font-size:14px}
+  .topbar b{font-family:var(--serif); font-size:17px; letter-spacing:-.01em}
+  .topbar .tel{font-weight:700; font-size:17px; letter-spacing:.01em}
+
+  /* ── 히어로 ── */
+  .hero{background:var(--paper); border-bottom:1px solid var(--rule)}
+  .hero .wrap{padding-block:48px 40px}
+  .eyebrow{font-size:14px; font-weight:600; color:var(--accent); letter-spacing:.02em; margin:0 0 12px}
+  h1{font-family:var(--serif); font-size:clamp(28px,5.2vw,44px); line-height:1.3;
+    margin:0 0 16px; letter-spacing:-.02em; text-wrap:balance}
+  h1 em{font-style:normal; color:var(--accent)}
+  .lede{font-size:clamp(16px,2.2vw,18px); color:var(--ink-2); margin:0 0 28px; max-width:62ch}
+  .stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin:0 0 28px}
+  .stat{border:1px solid var(--rule); border-top:3px solid var(--accent); background:var(--paper); padding:14px 16px}
+  .stat .n{font-family:var(--serif); font-size:clamp(22px,3.4vw,28px); color:var(--accent); line-height:1.2;
+    font-variant-numeric:tabular-nums}
+  .stat .l{font-size:13px; color:var(--ink-3); margin-top:5px; line-height:1.5}
+  .cta-row{display:flex; flex-wrap:wrap; gap:12px}
+  .btn{display:inline-flex; align-items:center; gap:8px; border:1px solid var(--accent);
+    background:var(--accent); color:var(--accent-ink); padding:13px 22px; font-size:16px;
+    font-weight:600; font-family:var(--sans); cursor:pointer; text-decoration:none; border-radius:2px}
+  .btn:hover{background:var(--accent-2); border-color:var(--accent-2)}
+  .btn.ghost{background:transparent; color:var(--accent)}
+  .btn.ghost:hover{background:#EDF2F5}
+  .btn:focus-visible{outline:3px solid var(--gold); outline-offset:2px}
+
+  /* ── 섹션 ── */
+  section{padding-block:40px}
+  section.alt{background:var(--paper); border-block:1px solid var(--rule)}
+  h2{font-family:var(--serif); font-size:clamp(21px,3.2vw,27px); margin:0 0 8px; letter-spacing:-.01em}
+  .sub{color:var(--ink-2); margin:0 0 22px; max-width:62ch}
+  h3{font-size:17px; margin:0 0 6px}
+
+  .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px}
+  .card{border:1px solid var(--rule); background:var(--paper); padding:20px 22px}
+  .card .tag{display:inline-block; font-size:12px; font-weight:600; color:var(--accent);
+    border:1px solid var(--accent); padding:2px 9px; margin-bottom:10px; letter-spacing:.02em}
+  .card p{margin:0; color:var(--ink-2); font-size:15px}
+  .card ul{margin:10px 0 0; padding-left:18px; color:var(--ink-2); font-size:15px}
+  .card li{margin:3px 0}
+
+  table{width:100%; border-collapse:collapse; font-size:15px; margin:4px 0 0}
+  th,td{border:1px solid var(--rule); padding:9px 12px; text-align:left; vertical-align:top}
+  th{background:#F7F9F9; font-weight:600; white-space:nowrap}
+  td.r{text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums}
+  .scroll{overflow-x:auto; min-width:0}
+
+  /* ── 폼 ── */
+  .formwrap{display:grid; grid-template-columns:1.15fr .85fr; gap:28px; align-items:start}
+  .panel{border:1px solid var(--rule); background:var(--paper); padding:24px}
+  .field{margin-bottom:16px}
+  .field label{display:block; font-size:14px; font-weight:600; margin-bottom:6px}
+  .field label .req{color:#A3341F; font-weight:600}
+  .field input, .field select, .field textarea{
+    width:100%; font:inherit; font-size:15px; color:var(--ink); background:var(--paper);
+    border:1px solid var(--rule); padding:11px 12px; border-radius:2px}
+  .field textarea{min-height:76px; resize:vertical}
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:2px solid var(--accent); outline-offset:0; border-color:var(--accent)}
+  .field .hint{font-size:13px; color:var(--ink-3); margin-top:5px}
+  .row2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+  .checks{display:flex; flex-direction:column; gap:9px; margin:4px 0 16px}
+  .chk{display:flex; gap:9px; align-items:flex-start; font-size:14.5px; color:var(--ink-2)}
+  .chk input{margin:4px 0 0; width:16px; height:16px; flex:none; accent-color:var(--accent)}
+  .consent{background:var(--gold-bg); border-left:3px solid var(--gold); padding:12px 14px;
+    font-size:13.5px; color:var(--ink-2); line-height:1.65; margin:0 0 16px}
+  .consent b{color:var(--gold)}
+  .result{display:none; border:1px solid var(--ok); background:var(--ok-bg); padding:18px 20px; margin-top:18px}
+  .result.on{display:block}
+  .result h3{color:var(--ok); margin-bottom:8px}
+  .result pre{white-space:pre-wrap; word-break:break-all; font-family:var(--sans); font-size:14.5px;
+    background:var(--paper); border:1px solid var(--rule); padding:13px; margin:10px 0 12px; line-height:1.7}
+  .err{color:#A3341F; font-size:14px; margin-top:-8px; margin-bottom:12px; display:none}
+  .err.on{display:block}
+
+  .side .panel + .panel{margin-top:16px}
+  .side dl{margin:0; font-size:15px}
+  .side dt{font-weight:600; margin-top:12px}
+  .side dt:first-child{margin-top:0}
+  .side dd{margin:2px 0 0; color:var(--ink-2)}
+  .quote{font-family:var(--serif); font-size:17px; line-height:1.75; color:var(--ink);
+    border-left:3px solid var(--accent); padding-left:16px; margin:0}
+
+  footer{background:var(--ink); color:#D8E0E4; padding-block:32px; font-size:14px}
+  footer .wrap{display:grid; grid-template-columns:1.3fr .7fr; gap:24px}
+  footer b{font-family:var(--serif); font-size:19px; color:#fff; display:block; margin-bottom:6px}
+  footer a{color:#9EC6DD}
+  footer .tel{font-size:22px; font-weight:700; color:#fff; letter-spacing:.01em}
+  .src{font-size:12.5px; color:var(--ink-3); margin-top:18px; line-height:1.6}
+  footer .src{color:#8699A3}
+
+  @media (max-width:860px){
+    .formwrap{grid-template-columns:1fr}
+    footer .wrap{grid-template-columns:1fr}
+  }
+  @media (max-width:520px){ .row2{grid-template-columns:1fr} }
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <b><a href="index.html" style="color:#fff;text-decoration:none">늘동행 행정사사무소</a></b>
+    <span class="tel">상담 010-7702-8496</span>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">수도권 산업단지 제조기업 대상 · 무료 1차 진단</p>
+    <h1>우리 회사 품목은 공공시장에서<br><em>얼마나 팔리고 있을까요</em></h1>
+    <p class="lede">
+      공공기관은 한 달에 2조 6천억원어치 물품을 삽니다. 그 거래의 80~90%는 입찰이 아니라
+      나라장터 종합쇼핑몰에서 일어납니다. <b>조달청 공개 데이터로 귀사 품목의 실제 거래액과
+      납품업체 수를 확인해 드립니다.</b> 비용은 없습니다.
+    </p>
+
+    <div class="stats">
+      <div class="stat"><div class="n">2조 6,036억</div><div class="l">월 납품요구 총액<br>(2026년 9월)</div></div>
+      <div class="stat"><div class="n">80~90%</div><div class="l">다수공급자계약(MAS)<br>비중</div></div>
+      <div class="stat"><div class="n">15,784곳</div><div class="l">수도권 산단<br>제조기업(2~100인)</div></div>
+      <div class="stat"><div class="n">4.3%</div><div class="l">그중 실제로<br>납품한 비율</div></div>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn" href="#apply">무료 진단 신청하기</a>
+      <a class="btn ghost" href="tel:01077028496">전화로 바로 문의</a>
+    </div>
+  </div>
+</div>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>무엇을 받으시게 되나</h2>
+    <p class="sub">신청하시면 1~2 영업일 안에 연락드리고, 아래 세 가지를 무료로 제공합니다.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">01</span>
+        <h3>우리 품목 시장 리포트</h3>
+        <p>귀사 생산품의 최근 3개월 공공 거래액, 납품업체 수, 상위 업체 점유율, 주요 수요기관을 조달청 데이터로 뽑아 드립니다.</p>
+      </div>
+      <div class="card">
+        <span class="tag">02</span>
+        <h3>진입 가능성 5분 진단</h3>
+        <ul>
+          <li>자체 완제품 보유 여부</li>
+          <li>국내 직접생산 여부</li>
+          <li>3년 내 납품실적 3건</li>
+          <li>업체등록·물품식별번호</li>
+          <li>중소기업자간 경쟁제품 해당 여부</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="tag">03</span>
+        <h3>입찰공고 알림</h3>
+        <p>귀사 품목과 관련된 나라장터 공고를 주 1회 정리해 보내 드립니다. 신청하신 분께만 보내며, 언제든 중단하실 수 있습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>업종별로 얼마나 거래되나</h2>
+    <p class="sub">2026년 7~9월 종합쇼핑몰 납품요구 전수(315,148건)를 집계한 결과입니다.</p>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th>분야</th><th class="r">3개월 거래액</th><th class="r">MAS 비중</th><th class="r">납품업체</th><th class="r">상위 3사</th><th>대표 품명</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>금속 구조물·시설물</td><td class="r">5,831억</td><td class="r">92%</td><td class="r">1,935곳</td><td class="r">6%</td><td>금속제울타리·맨홀·가드레일</td></tr>
+          <tr><td>전기·조명</td><td class="r">3,317억</td><td class="r">85%</td><td class="r">1,234곳</td><td class="r">7%</td><td>태양광발전장치·배전반·경관조명</td></tr>
+          <tr><td>기계·환경설비</td><td class="r">1,461억</td><td class="r">84%</td><td class="r">345곳</td><td class="r">11%</td><td>제수밸브·저수탱크·공기조화기</td></tr>
+          <tr><td>가구</td><td class="r">1,440억</td><td class="r">85%</td><td class="r">507곳</td><td class="r">16%</td><td>작업용의자·책장·책상</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="src">
+      상위 3개사를 모두 합쳐도 6~16%입니다. 대기업이 독식하는 구조가 아니라, 등록한 중소 제조사들이
+      나눠 갖는 구조입니다. 기계·환경설비는 납품업체가 345곳뿐이라 경쟁이 가장 적습니다.
+    </p>
+  </div>
+</section>
+
+<section class="alt" id="apply">
+  <div class="wrap">
+    <h2>무료 1차 진단 신청</h2>
+    <p class="sub">아래를 채우고 <b>신청 내용 만들기</b>를 누르시면 문자로 보낼 내용이 만들어집니다.
+      그대로 보내 주시거나, 전화 주셔도 됩니다.</p>
+
+    <div class="formwrap">
+      <form class="panel" id="f" novalidate>
+        <div class="row2">
+          <div class="field">
+            <label for="company">회사명 <span class="req">*</span></label>
+            <input id="company" name="company" type="text" autocomplete="organization" placeholder="(주)○○산업">
+          </div>
+          <div class="field">
+            <label for="name">담당자 성함 <span class="req">*</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="홍길동">
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label for="phone">연락처 <span class="req">*</span></label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000">
+          </div>
+          <div class="field">
+            <label for="email">이메일</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="알림 메일을 받으실 주소">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="product">주요 생산품 <span class="req">*</span></label>
+          <input id="product" name="product" type="text" placeholder="예: 금속제울타리, 배전반, 제수밸브, 사무용 의자">
+          <p class="hint">제품명을 적어 주시면 그 품목의 공공시장 거래액을 뽑아 드립니다.</p>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label for="area">공장 소재지</label>
+            <select id="area" name="area">
+              <option value="">선택하지 않음</option>
+              <option>시화산단 (시흥)</option>
+              <option>반월산단 (안산)</option>
+              <option>남동산단 (인천)</option>
+              <option>시화MTV</option>
+              <option>김포 양촌·학운</option>
+              <option>인천 검단·서부</option>
+              <option>부천 오정</option>
+              <option>그 밖의 수도권</option>
+              <option>수도권 외</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="emp">종업원 수</label>
+            <select id="emp" name="emp">
+              <option value="">선택하지 않음</option>
+              <option>2~5명</option><option>6~9명</option><option>10~19명</option>
+              <option>20~49명</option><option>50~100명</option><option>100명 초과</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>관심 있는 것 (복수 선택)</label>
+          <div class="checks">
+            <label class="chk"><input type="checkbox" name="want" value="시장 리포트" checked> 우리 품목 시장 리포트</label>
+            <label class="chk"><input type="checkbox" name="want" value="진입 진단"> 공공조달 진입 가능성 진단</label>
+            <label class="chk"><input type="checkbox" name="want" value="공고 알림"> 입찰공고 주간 알림</label>
+            <label class="chk"><input type="checkbox" name="want" value="기존 계약 활성화"> 이미 계약은 있는데 주문이 없음</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="memo">하고 싶은 말</label>
+          <textarea id="memo" name="memo" placeholder="현재 상황이나 알고 싶은 점을 적어 주세요."></textarea>
+        </div>
+
+        <div class="consent">
+          <b>안내</b> — 알림 메일·문자를 받으시려면 아래 동의가 필요합니다.
+          「정보통신망 이용촉진 및 정보보호 등에 관한 법률」 제50조에 따라 <b>동의하신 분께만</b> 보내며,
+          수신거부는 언제든 한 번의 연락으로 처리됩니다. 알려 주신 정보는 상담 목적으로만 쓰고 제3자에게 제공하지 않습니다.
+        </div>
+
+        <div class="checks">
+          <label class="chk"><input type="checkbox" id="agree1"> <span><b>(필수)</b> 상담을 위해 연락처를 수집·이용하는 데 동의합니다.</span></label>
+          <label class="chk"><input type="checkbox" id="agree2"> <span>(선택) 공고 알림·조달 제도 변경 안내를 메일·문자로 받겠습니다.</span></label>
+        </div>
+
+        <p class="err" id="err"></p>
+        <button class="btn" type="submit">신청 내용 만들기</button>
+
+        <div class="result" id="result" aria-live="polite">
+          <h3>이대로 보내 주시면 됩니다</h3>
+          <pre id="out"></pre>
+          <div class="cta-row">
+            <button class="btn" type="button" id="copy">내용 복사</button>
+            <a class="btn ghost" id="sms" href="#">문자로 보내기</a>
+            <a class="btn ghost" id="mail" href="#">메일로 보내기</a>
+            <a class="btn ghost" href="tel:01077028496">전화하기</a>
+          </div>
+          <p class="src" style="margin-top:12px">
+            버튼이 열리지 않으면 <b>내용 복사</b>를 누른 뒤 010-7702-8496 또는 algowith@naver.com 으로 붙여넣어 보내 주세요.
+          </p>
+        </div>
+      </form>
+
+      <div class="side">
+        <div class="panel">
+          <p class="quote">공공조달의 내부 구조를 아는 사람이 설계합니다.</p>
+          <dl style="margin-top:16px">
+            <dt>조달청 출신 · 중앙부처 25년</dt>
+            <dd>구매사업국·지방조달청·조달품질원 근무</dd>
+            <dt>다루는 일</dt>
+            <dd>공장등록 · 직접생산확인증명 · 물품식별번호 · MAS · 혁신제품 · 우수제품 · 여성기업 등 의무구매 · 품질인증</dd>
+            <dt>상담 방식</dt>
+            <dd>전화·방문 모두 가능. 1차 진단은 비용이 없습니다.</dd>
+          </dl>
+        </div>
+        <div class="panel">
+          <h3>이런 분께 특히 도움이 됩니다</h3>
+          <ul style="margin:8px 0 0; padding-left:18px; color:var(--ink-2); font-size:15px">
+            <li>제품은 있는데 공공 납품은 해 본 적 없는 경우</li>
+            <li>나라장터 등록만 해 두고 멈춰 있는 경우</li>
+            <li>쇼핑몰 계약은 있는데 주문이 거의 없는 경우</li>
+            <li>직접생산확인·인증 때문에 막혀 있는 경우</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <b><a href="index.html" style="color:#fff;text-decoration:none">늘동행 행정사사무소</a></b>
+      <div>공공조달 · 기업행정 · 출입국비자 — 중소·벤처기업의 공공조달 진입과 성장을 돕습니다.</div>
+      <div class="src">
+        데이터 출처: 조달청 나라장터 오픈API(종합쇼핑몰 납품요구 내역 2026.7~9월 전수 315,148건),
+        한국산업단지공단 팩토리온 공장등록정보 — 2026-10-05 조회.
+        수치는 조회 시점 기준이며 분기마다 갱신합니다.
+      </div>
+    </div>
+    <div>
+      <div class="tel">010-7702-8496</div>
+      <div style="margin-top:6px"><a href="mailto:algowith@naver.com">algowith@naver.com</a> · 카카오톡 algowith</div>
+      <div style="margin-top:4px"><a href="https://blog.naver.com/nuldonghang" target="_blank" rel="noopener">blog.naver.com/nuldonghang</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var f = document.getElementById('f');
+  var err = document.getElementById('err');
+  var result = document.getElementById('result');
+  var out = document.getElementById('out');
+  var sms = document.getElementById('sms');
+  var mail = document.getElementById('mail');
+  var OFFICE = '01077028496';
+  var MAIL = 'algowith@naver.com';
+
+  function val(id){ var e = document.getElementById(id); return e ? e.value.trim() : ''; }
+
+  f.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var company = val('company'), name = val('name'), phone = val('phone'), product = val('product');
+    var missing = [];
+    if(!company) missing.push('회사명');
+    if(!name) missing.push('담당자 성함');
+    if(!phone) missing.push('연락처');
+    if(!product) missing.push('주요 생산품');
+    if(!document.getElementById('agree1').checked) missing.push('필수 동의');
+
+    if(missing.length){
+      err.textContent = missing.join(', ') + ' 을(를) 확인해 주세요.';
+      err.classList.add('on');
+      result.classList.remove('on');
+      return;
+    }
+    err.classList.remove('on');
+
+    var wants = Array.prototype.slice.call(document.querySelectorAll('input[name=want]:checked'))
+                 .map(function(c){ return c.value; });
+    var lines = [
+      '[공공조달 무료 진단 신청]',
+      '회사명: ' + company,
+      '담당자: ' + name,
+      '연락처: ' + phone
+    ];
+    if(val('email')) lines.push('이메일: ' + val('email'));
+    lines.push('생산품: ' + product);
+    if(val('area')) lines.push('소재지: ' + val('area'));
+    if(val('emp')) lines.push('종업원: ' + val('emp'));
+    if(wants.length) lines.push('관심: ' + wants.join(', '));
+    if(val('memo')) lines.push('문의: ' + val('memo'));
+    lines.push('수집·이용 동의: 예');
+    lines.push('알림 수신 동의: ' + (document.getElementById('agree2').checked ? '예' : '아니오'));
+
+    var text = lines.join('\n');
+    out.textContent = text;
+    sms.setAttribute('href', 'sms:' + OFFICE + '?body=' + encodeURIComponent(text));
+    mail.setAttribute('href', 'mailto:' + MAIL
+      + '?subject=' + encodeURIComponent('[공공조달 무료 진단 신청] ' + company)
+      + '&body=' + encodeURIComponent(text));
+    result.classList.add('on');
+    result.scrollIntoView({block:'nearest'});
+  });
+
+  document.getElementById('copy').addEventListener('click', function(){
+    var btn = this, text = out.textContent;
+    function done(){ var t = btn.textContent; btn.textContent = '복사했습니다'; setTimeout(function(){ btn.textContent = t; }, 2000); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done, select);
+    } else { select(); }
+    function select(){
+      var r = document.createRange(); r.selectNodeContents(out);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      try { document.execCommand('copy'); done(); } catch(e){ btn.textContent = '아래 내용을 직접 복사해 주세요'; }
+    }
+  });
+})();
+</script>
+</body>
+</html>

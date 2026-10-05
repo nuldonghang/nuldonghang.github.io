@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:type" content="website">
+<meta property="og:title" content="늘동행 행정사사무소">
+<meta property="og:description" content="조달청 공무원 출신 행정사가 중소·벤처기업의 공공조달 진입과 성장을 함께합니다. 수의계약·다수공급자계약(MAS)·직접생산확인·우선구매·인허가·출입국비자.">
+<meta name="naver-site-verification" content="">
+<title>늘동행 행정사사무소</title>
+<meta name="description" content="조달청 공무원 출신 행정사가 중소·벤처기업의 공공조달 진입과 성장을 함께합니다. 수의계약·다수공급자계약(MAS)·직접생산확인·우선구매·인허가·출입국비자.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F4F6F5;
+  --paper:#FFFFFF;
+  --ink:#15232C;
+  --ink-2:#44545E;
+  --ink-3:#6B7A83;
+  --rule:#D6DDDC;
+  --accent:#1D4E6E;
+  --accent-ink:#FFFFFF;
+  --accent-soft:#E3ECF1;
+  --brass:#A9822F;
+  --brass-soft:#F3EBD9;
+  --serif:"Nanum Myeongjo","Noto Serif KR","Batang",serif;
+  --sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"Consolas",monospace;
+  --wrap:1120px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#0F171C;--paper:#152129;--ink:#E6ECEE;--ink-2:#B3C0C6;--ink-3:#8594A0;
+    --rule:#26343D;--accent:#7FB3D3;--accent-ink:#0F171C;--accent-soft:#1A2E3A;
+    --brass:#D4B26A;--brass-soft:#2A2518;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#0F171C;--paper:#152129;--ink:#E6ECEE;--ink-2:#B3C0C6;--ink-3:#8594A0;
+  --rule:#26343D;--accent:#7FB3D3;--accent-ink:#0F171C;--accent-soft:#1A2E3A;
+  --brass:#D4B26A;--brass-soft:#2A2518;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+h1,h2,h3{text-wrap:balance;margin:0}
+h2{font-family:var(--serif);font-weight:800;font-size:clamp(26px,3.4vw,36px);line-height:1.3}
+p{margin:0}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none}
+.brand b{font-family:var(--serif);font-weight:800;font-size:20px}
+.brand span{font-size:13px;color:var(--ink-3)}
+.nav{display:flex;gap:22px;font-size:14px}
+.nav a{text-decoration:none;color:var(--ink-2)}
+.nav a:hover{color:var(--accent)}
+@media (max-width:760px){.nav{display:none}.brand span{display:none}}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,72px);padding-block:clamp(48px,8vw,96px) clamp(40px,6vw,72px);align-items:start}
+@media (max-width:880px){.hero .wrap{grid-template-columns:1fr}}
+.hero h1{font-family:var(--serif);font-weight:800;font-size:clamp(34px,5.2vw,58px);line-height:1.22;letter-spacing:-.01em;margin-top:18px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lead{margin-top:22px;font-size:clamp(16px,1.6vw,18px);color:var(--ink-2);max-width:34em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;border-radius:4px;font:500 15px/1 var(--sans);text-decoration:none;border:1px solid var(--accent);cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn .num{font-family:var(--mono);letter-spacing:.02em}
+.seal{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid var(--brass);color:var(--brass);background:var(--brass-soft);font-size:13px;font-weight:500;border-radius:2px}
+.seal::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--brass)}
+
+/* route card */
+.route{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:26px 26px 22px}
+.route h3{font-family:var(--serif);font-weight:700;font-size:19px;margin-top:6px}
+.route ol{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:0}
+.route li{display:grid;grid-template-columns:34px 1fr;gap:12px;position:relative;padding-bottom:16px}
+.route li:last-child{padding-bottom:0}
+.route li::before{content:"";position:absolute;left:16px;top:30px;bottom:2px;width:1px;background:var(--rule)}
+.route li:last-child::before{display:none}
+.route .step{width:34px;height:34px;border-radius:50%;border:1px solid var(--accent);color:var(--accent);display:grid;place-items:center;font:500 13px var(--mono);background:var(--paper);position:relative}
+.route strong{display:block;font-weight:600;font-size:15px;line-height:1.5;padding-top:5px}
+.route small{display:block;color:var(--ink-3);font-size:13px;line-height:1.55}
+.route .note{margin-top:18px;padding-top:14px;border-top:1px dashed var(--rule);font-size:13px;color:var(--ink-3)}
+
+/* sections */
+section.block{padding-block:clamp(56px,8vw,96px);border-top:1px solid var(--rule)}
+.head{display:grid;grid-template-columns:1fr 1.3fr;gap:24px 48px;align-items:end;margin-bottom:40px}
+.head p{color:var(--ink-2);max-width:36em}
+@media (max-width:760px){.head{grid-template-columns:1fr}}
+
+/* fields */
+.fields{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--rule);border-radius:6px;background:var(--paper);overflow:hidden}
+@media (max-width:880px){.fields{grid-template-columns:1fr}}
+.field{padding:28px 26px;border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:14px}
+.field:last-child{border-right:0}
+@media (max-width:880px){.field{border-right:0;border-bottom:1px solid var(--rule)}.field:last-child{border-bottom:0}}
+.field.main{background:var(--accent-soft)}
+.field h3{font-family:var(--serif);font-weight:800;font-size:22px}
+.field > p{color:var(--ink-2);font-size:15px}
+.field ul{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--rule)}
+.field li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--rule);font-size:15px}
+.field li span{font-family:var(--mono);font-size:12px;color:var(--ink-3);white-space:nowrap;padding-top:3px}
+
+/* profile */
+.profile{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,5vw,72px)}
+@media (max-width:880px){.profile{grid-template-columns:1fr}}
+.quote{font-family:var(--serif);font-weight:700;font-size:clamp(21px,2.4vw,27px);line-height:1.55}
+.quote + p{margin-top:20px;color:var(--ink-2)}
+.sign{margin-top:28px;display:flex;align-items:baseline;gap:12px}
+.sign b{font-family:var(--serif);font-size:22px;font-weight:800}
+.sign span{color:var(--ink-3);font-size:14px}
+.career{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.career li{display:grid;grid-template-columns:96px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule);font-size:15px}
+.career li > span{font-family:var(--mono);font-size:12px;color:var(--ink-3);padding-top:3px;letter-spacing:.04em}
+@media (max-width:480px){.career li{grid-template-columns:1fr;gap:2px}}
+
+/* process */
+.process{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:p}
+@media (max-width:880px){.process{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.process{grid-template-columns:1fr}}
+.process li{counter-increment:p;padding-top:18px;border-top:2px solid var(--accent);display:flex;flex-direction:column;gap:8px}
+.process li::before{content:"0" counter(p);font:500 13px var(--mono);color:var(--accent)}
+.process h3{font-size:17px;font-weight:600}
+.process p{font-size:14.5px;color:var(--ink-2)}
+
+/* writing */
+.posts{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.posts a{display:grid;grid-template-columns:140px 1fr auto;gap:16px;align-items:baseline;padding:16px 4px;border-bottom:1px solid var(--rule);text-decoration:none}
+.posts a:hover strong{color:var(--accent)}
+.posts .cat{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.posts strong{font-weight:500;font-size:16px}
+.posts time{font-family:var(--mono);font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+@media (max-width:640px){.posts a{grid-template-columns:1fr;gap:2px}}
+.more{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.chips button{font:500 13.5px var(--sans);padding:7px 13px;border:1px solid var(--rule);border-radius:999px;background:var(--paper);color:var(--ink-2);cursor:pointer}
+.chips button span{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin-left:4px}
+.chips button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--ground)}
+.chips button[aria-pressed="true"] span{color:var(--ground);opacity:.7}
+.synced{margin-top:14px;font-size:12.5px;color:var(--ink-3)}
+
+/* notice band */
+.notice{border-top:1px solid var(--rule);background:var(--paper)}
+.notice .wrap{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;padding-block:18px}
+.notice .tag{font:500 12px var(--mono);letter-spacing:.1em;color:var(--brass)}
+.notice-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:28px;scrollbar-width:none}
+.notice-track::-webkit-scrollbar{display:none}
+.notice-track a{flex:0 0 100%;scroll-snap-align:start;text-decoration:none;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.notice-track a:hover{color:var(--accent)}
+.notice-dots{grid-column:2;display:flex;gap:6px;margin-top:-6px}
+.notice-dots button{width:7px;height:7px;padding:0;border:0;border-radius:50%;background:var(--rule);cursor:pointer}
+.notice-dots button[aria-current="true"]{background:var(--ink)}
+@media (max-width:560px){.notice .wrap{grid-template-columns:1fr;gap:6px}.notice-dots{grid-column:1;margin-top:4px}.notice-track a{white-space:normal}}
+.exam{margin-top:40px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;border:1px solid var(--brass);background:var(--brass-soft);border-radius:6px}
+.exam p{color:var(--ink-2);font-size:14.5px}
+.exam strong{display:block;font-family:var(--serif);font-weight:800;font-size:19px;color:var(--ink)}
+.exam .rounds{display:flex;flex-wrap:wrap;gap:8px}
+.exam .rounds a{font:500 13px var(--mono);padding:7px 12px;border:1px solid var(--brass);border-radius:3px;text-decoration:none;color:var(--ink);background:var(--paper)}
+.exam .rounds a:hover{border-color:var(--accent);color:var(--accent)}
+
+/* contact */
+.contact{background:var(--accent);color:var(--accent-ink)}
+.contact .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:32px 64px;padding-block:clamp(56px,8vw,88px);align-items:center}
+@media (max-width:880px){.contact .wrap{grid-template-columns:1fr}}
+.contact h2{color:var(--accent-ink)}
+.contact p{margin-top:16px;opacity:.85;max-width:34em}
+.phone{border:1px solid color-mix(in srgb,var(--accent-ink) 35%,transparent);border-radius:6px;padding:24px}
+.phone .label{color:var(--accent-ink);opacity:.7}
+.phone .n{display:block;margin-top:6px;font:500 clamp(26px,3.4vw,34px)/1.2 var(--mono);letter-spacing:.02em;user-select:all}
+.phone .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.phone .btn{border-color:var(--accent-ink)}
+.phone .btn.primary{background:var(--accent-ink);color:var(--accent)}
+.phone .btn.ghost{color:var(--accent-ink)}
+.phone .status{margin-top:12px;font-size:13px;min-height:1.5em;opacity:.85}
+.ids{margin:14px 0 0;padding-top:14px;border-top:1px solid color-mix(in srgb,var(--accent-ink) 25%,transparent);display:grid;gap:8px}
+.ids div{display:grid;grid-template-columns:92px 1fr;gap:12px;align-items:baseline}
+.ids dt{font-size:13px;opacity:.7}
+.ids dd{margin:0;font:500 15px var(--mono);user-select:all;overflow-wrap:anywhere}
+
+footer{padding-block:32px 40px;font-size:13px;color:var(--ink-3)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><b>늘동행 행정사사무소</b><span>공공조달 · 기업행정 · 출입국비자</span></a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="#fields">업무 분야</a>
+      <a href="#about">대표 소개</a>
+      <a href="#process">진행 방식</a>
+      <a href="#writing">실무 글</a>
+      <a href="#contact">상담 문의</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="seal">조달청 공무원 출신 · 중앙부처 25년</span>
+        <h1>공공조달 서류,<br>심사하던 눈으로<br><em>함께 준비합니다.</em></h1>
+        <p class="lead">늘동행 행정사사무소는 중소·벤처기업이 공공조달 시장에 들어서고 자리 잡을 수 있도록 곁에서 돕는 사무소입니다. 조달청 구매사업국·지방조달청·조달품질원 근무 경험을 바탕으로, 기업의 현재 위치에서 갈 수 있는 길을 먼저 그려 드립니다.</p>
+        <div class="cta">
+          <a class="btn primary" href="#contact">상담 문의 <span class="num">010-7702-8496</span></a>
+          <a class="btn ghost" href="apply.html">무료 1차 진단 신청</a>
+          <a class="btn ghost" href="https://blog.naver.com/nuldonghang" target="_blank" rel="noopener">네이버 블로그 보기</a>
+        </div>
+      </div>
+
+      <aside class="route" aria-label="공공조달 진입 경로">
+        <span class="label">Route · 공공조달 진입 경로</span>
+        <h3>우리 회사는 지금 어디쯤일까요?</h3>
+        <ol>
+          <li><span class="step">1</span><div><strong>기업 자격 확인</strong><small>중소기업확인서 · 벤처·여성·장애인기업 확인</small></div></li>
+          <li><span class="step">2</span><div><strong>입찰참가자격 · 직접생산확인</strong><small>나라장터 등록, 생산공장·시설·인력 요건 점검</small></div></li>
+          <li><span class="step">3</span><div><strong>우선구매 · 기술개발제품 인증</strong><small>성능인증 · NEP · 우수조달물품 · 혁신제품</small></div></li>
+          <li><span class="step">4</span><div><strong>계약방법 선택</strong><small>수의계약 · 다수공급자계약(MAS) · 협상에 의한 계약</small></div></li>
+          <li><span class="step">5</span><div><strong>납품 이후 관리</strong><small>검사·대금, 인증 갱신, 처분 사전통지 대응</small></div></li>
+        </ol>
+        <p class="note">첫 상담에서는 이 경로 위에 기업의 현재 위치를 표시하고, 다음 단계에 필요한 서류를 정리해 드립니다.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="notice" aria-label="공지">
+    <div class="wrap">
+<!--NOTICE:START-->
+      <span class="tag">NOTICE</span>
+      <div class="notice-track">
+        <a href="https://blog.naver.com/nuldonghang/224422039764" target="_blank" rel="noopener">조달청 근무경력을 바탕으로 구성한 공공조달관리사 CBT 예상문제 전격 공개</a>
+        <a href="https://blog.naver.com/nuldonghang/224417221234" target="_blank" rel="noopener">수의계약 금액기준을 2천만원만 알면 반은 손해입니다</a>
+        <a href="https://blog.naver.com/nuldonghang/224403817358" target="_blank" rel="noopener">(공공조달 수행사례) 중소기업확인서(공공기관 입찰용)</a>
+        <a href="https://blog.naver.com/nuldonghang/224399256213" target="_blank" rel="noopener">의료기기 인허가의 전체 개요</a>
+        <a href="https://blog.naver.com/nuldonghang/224394273122" target="_blank" rel="noopener">직접생산확인 증명을 알아야 중소기업자간 입찰 및 수의계약에 참여할 수 있습니다</a>
+      </div>
+      <div class="notice-dots"><button type="button" aria-label="공지 1" aria-current="true"></button><button type="button" aria-label="공지 2"></button><button type="button" aria-label="공지 3"></button><button type="button" aria-label="공지 4"></button><button type="button" aria-label="공지 5"></button></div>
+<!--NOTICE:END-->
+    </div>
+  </section>
+
+  <section class="block" id="fields">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="label">Practice areas</span><h2>업무 분야</h2></div>
+        <p>공공조달을 중심으로, 조달 진입에 앞서 필요한 기업 확인·인허가와 외국인 인력·체류 업무까지 한 창구에서 상담합니다.</p>
+      </div>
+      <div class="fields">
+        <article class="field main">
+          <span class="label">Main</span>
+          <h3>공공조달</h3>
+          <p>계약방법 선택부터 등록·인증까지, 조달청 실무 기준으로 서류를 준비합니다.</p>
+          <ul>
+            <li>수의계약 · 사유서 작성<span>국가계약법</span></li>
+            <li>다수공급자계약(MAS) 등록<span>2단계경쟁</span></li>
+            <li>협상에 의한 계약 제안 준비<span>기술·가격</span></li>
+            <li>직접생산확인 증명<span>중기부</span></li>
+            <li>우선구매제도 활용<span>중소·여성·장애인</span></li>
+            <li>혁신제품 · 기술개발제품<span>NEP·NET·EPC</span></li>
+          </ul>
+        </article>
+        <article class="field">
+          <span class="label">Corporate</span>
+          <h3>기업행정 · 인허가</h3>
+          <p>조달 진입의 전제가 되는 확인서·등록과 업종별 인허가를 다룹니다.</p>
+          <ul>
+            <li>중소·벤처기업 확인<span>유효기간·갱신</span></li>
+            <li>공장등록 · 건설업등록<span>요건 점검</span></li>
+            <li>의료기기 인허가<span>1~4등급</span></li>
+            <li>HACCP 인증<span>식품</span></li>
+            <li>비영리법인 설립 · 운영<span>사단·재단</span></li>
+            <li>행정처분 사전통지 의견제출<span>행정절차법</span></li>
+          </ul>
+        </article>
+        <article class="field">
+          <span class="label">Immigration</span>
+          <h3>출입국 · 비자</h3>
+          <p>유학생 취업, 전문인력 채용, 결혼이민·영주까지 체류자격 경로를 설계합니다.</p>
+          <ul>
+            <li>유학 · 구직<span>D-4 · D-2 · D-10</span></li>
+            <li>전문인력 채용 · 근무처변경<span>E-7</span></li>
+            <li>거주 · 점수제<span>F-2</span></li>
+            <li>결혼이민 · 배우자 초청<span>F-6</span></li>
+            <li>영주자격<span>F-5</span></li>
+            <li>투자 · 공연 체류자격<span>D-8 · E-6</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="about">
+    <div class="wrap profile">
+      <div>
+        <span class="label">Representative</span>
+        <p class="quote" style="margin-top:14px">“중앙부처 25년 동안 쌓은 경력과 노하우를 바탕으로, 중소·벤처기업의 성장과 발전에 늘 동행하겠습니다.”</p>
+        <p>공공조달 판로를 찾으면서 생기는 문의사항이나 애로사항이 있으면 언제든 전화나 카카오톡으로 연락 주십시오.</p>
+        <div class="sign"><b>김재영</b><span>대표 행정사</span></div>
+      </div>
+      <ul class="career" aria-label="대표 이력">
+        <li><span>학력</span><div>한양대학교 공학사 · 공학석사</div></li>
+        <li><span>조달청</span><div>구매사업국, 서울지방조달청, 조달품질원, 조달우수디자인제품기획단 등 근무</div></li>
+        <li><span>중앙부처</span><div>과학기술정보통신부 및 소속기관 등 근무</div></li>
+        <li><span>해외 파견</span><div>행정안전부 주관 국가직공무원 훈련·파견 (칠레 UNAP대학교)</div></li>
+        <li><span>포상</span><div>국무총리 표창, 과학기술정보통신부 장관 표창</div></li>
+        <li><span>평가위원</span><div>서울지방국세청, 한국방송통신대학교, 국립중앙박물관 등 다수 기관 평가위원</div></li>
+        <li><span>자격</span><div>조달청 내자구매계약관 자격 보유</div></li>
+        <li><span>소속</span><div>대한행정사회 정회원</div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="process">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="label">How we work</span><h2>진행 방식</h2></div>
+        <p>상담 한 번으로 끝나지 않도록, 기업이 직접 볼 수 있는 절차 로드맵을 먼저 드리고 그 위에서 일을 나눕니다.</p>
+      </div>
+      <ol class="process">
+        <li><h3>상담</h3><p>전화·카카오톡으로 현재 상황과 목표를 듣고 관련 제도를 확인합니다.</p></li>
+        <li><h3>로드맵 제시</h3><p>현행 법령·고시 기준으로 가능한 경로와 필요 서류, 예상 기간을 정리해 드립니다.</p></li>
+        <li><h3>위임 · 서류 작성</h3><p>위임계약 후 신청서·사유서·증빙을 작성하고 기관 제출을 대행합니다.</p></li>
+        <li><h3>사후 관리</h3><p>보완 요구 대응, 유효기간 갱신, 처분 사전통지 의견제출까지 이어서 챙깁니다.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="writing">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="label">Field notes</span><h2>실무 글</h2></div>
+        <p>블로그에서 공공조달과 행정 절차를 조달청 실무 관점으로 풀어 쓰고 있습니다.</p>
+      </div>
+<!--BLOG:START-->
+      <div class="chips" aria-label="분야별 글"><button type="button" data-cat="전체" aria-pressed="true">전체<span>37</span></button><button type="button" data-cat="공공조달관리사" aria-pressed="false">공공조달관리사<span>17</span></button><button type="button" data-cat="우선구매제도" aria-pressed="false">우선구매제도<span>5</span></button><button type="button" data-cat="의료기기" aria-pressed="false">의료기기<span>3</span></button><button type="button" data-cat="수의계약" aria-pressed="false">수의계약<span>3</span></button><button type="button" data-cat="기타 행정서비스" aria-pressed="false">기타 행정서비스<span>2</span></button><button type="button" data-cat="직접생산확인증명" aria-pressed="false">직접생산확인증명<span>2</span></button><button type="button" data-cat="다수공급자계약(마스)" aria-pressed="false">다수공급자계약(마스)<span>1</span></button><button type="button" data-cat="협상에의한계약" aria-pressed="false">협상에의한계약<span>1</span></button><button type="button" data-cat="최근개정사항" aria-pressed="false">최근개정사항<span>1</span></button><button type="button" data-cat="혁신제품" aria-pressed="false">혁신제품<span>1</span></button><button type="button" data-cat="출입국비자" aria-pressed="false">출입국비자<span>1</span></button></div>
+      <ul class="posts" id="post-list">
+        <li data-cat="의료기기"><a href="https://blog.naver.com/nuldonghang/224421848773" target="_blank" rel="noopener"><span class="cat">의료기기</span><strong>의료기기 1등급 품질책임자 자격 요건 10가지</strong><time datetime="2026-09-24">2026.09.24</time></a></li>
+        <li data-cat="수의계약"><a href="https://blog.naver.com/nuldonghang/224421707233" target="_blank" rel="noopener"><span class="cat">수의계약</span><strong>특수한 지식·기술·자격 보유하고 있으면 수의계약을 할 수 있습니다</strong><time datetime="2026-09-24">2026.09.24</time></a></li>
+        <li data-cat="다수공급자계약(마스)"><a href="https://blog.naver.com/nuldonghang/224421283312" target="_blank" rel="noopener"><span class="cat">다수공급자계약(마스)</span><strong>마스계약을 아직 모르신다면 이 포스팅만 보셔도 됩니다</strong><time datetime="2026-09-23">2026.09.23</time></a></li>
+        <li data-cat="기타 행정서비스"><a href="https://blog.naver.com/nuldonghang/224420683153" target="_blank" rel="noopener"><span class="cat">기타 행정서비스</span><strong>추석 연휴가 끼면 행정 기한은 어떻게 계산되나</strong><time datetime="2026-09-23">2026.09.23</time></a></li>
+        <li data-cat="협상에의한계약"><a href="https://blog.naver.com/nuldonghang/224420545573" target="_blank" rel="noopener"><span class="cat">협상에의한계약</span><strong>공공조달 낙찰자선정 &#x27;협상에 의한 계약&#x27; 총정리</strong><time datetime="2026-09-23">2026.09.23</time></a></li>
+        <li data-cat="최근개정사항"><a href="https://blog.naver.com/nuldonghang/224420022009" target="_blank" rel="noopener"><span class="cat">최근개정사항</span><strong>조달청 품질보증조달물품 심사 체크리스트와 우수제품·수의계약으로 이어지는 길</strong><time datetime="2026-09-22">2026.09.22</time></a></li>
+        <li data-cat="직접생산확인증명"><a href="https://blog.naver.com/nuldonghang/224419694702" target="_blank" rel="noopener"><span class="cat">직접생산확인증명</span><strong>직접생산 3대 요건은 생산공장·생산시설·생산인력입니다</strong><time datetime="2026-09-22">2026.09.22</time></a></li>
+        <li data-cat="수의계약"><a href="https://blog.naver.com/nuldonghang/224419416060" target="_blank" rel="noopener"><span class="cat">수의계약</span><strong>계약담당자의 부담을 덜어주기 위해 수의계약 사유서를 잘 작성해야 합니다</strong><time datetime="2026-09-22">2026.09.22</time></a></li>
+        <li data-cat="수의계약"><a href="https://blog.naver.com/nuldonghang/224418802363" target="_blank" rel="noopener"><span class="cat">수의계약</span><strong>수의계약으로 1억까지 가능한 계약상대자가 있습니다.</strong><time datetime="2026-09-21">2026.09.21</time></a></li>
+        <li data-cat="직접생산확인증명"><a href="https://blog.naver.com/nuldonghang/224418053928" target="_blank" rel="noopener"><span class="cat">직접생산확인증명</span><strong>직접생산확인증명 발급은 자가진단부터 8단계가 전부입니다</strong><time datetime="2026-09-20">2026.09.20</time></a></li>
+        <li data-cat="공공조달관리사"><a href="https://blog.naver.com/nuldonghang/224416288860" target="_blank" rel="noopener"><span class="cat">공공조달관리사</span><strong>낙찰받고도 2년간 입찰퇴출 당하는 이유</strong><time datetime="2026-09-18">2026.09.18</time></a></li>
+        <li data-cat="기타 행정서비스"><a href="https://blog.naver.com/nuldonghang/224415185170" target="_blank" rel="noopener"><span class="cat">기타 행정서비스</span><strong>재산세 납부기한 9월30일까지 놓치면 안 되는 재산세 2기분 체크리스트</strong><time datetime="2026-09-17">2026.09.17</time></a></li>
+        <li data-cat="혁신제품"><a href="https://blog.naver.com/nuldonghang/224414013745" target="_blank" rel="noopener"><span class="cat">혁신제품</span><strong>조달청 혁신제품 발굴체계 개편, &quot;이제는 어느 창구로 가야하나요?&quot;</strong><time datetime="2026-09-16">2026.09.16</time></a></li>
+        <li data-cat="출입국비자"><a href="https://blog.naver.com/nuldonghang/224412803066" target="_blank" rel="noopener"><span class="cat">출입국비자</span><strong>브루노 마스가 비자없이 여권만 들고 온다고 생각하시나요?</strong><time datetime="2026-09-15">2026.09.15</time></a></li>
+        <li data-cat="공공조달관리사"><a href="https://blog.naver.com/nuldonghang/224412714916" target="_blank" rel="noopener"><span class="cat">공공조달관리사</span><strong>공공조달 이의신청 절차와 국가계약분쟁조정위원회는 어떻게 되는가요</strong><time datetime="2026-09-15">2026.09.15</time></a></li>
+        <li data-cat="공공조달관리사"><a href="https://blog.naver.com/nuldonghang/224411739248" target="_blank" rel="noopener"><span class="cat">공공조달관리사</span><strong>공공조달관리사 조기마감에 대한 산업인력관리공단 추가공지 안내</strong><time datetime="2026-09-14">2026.09.14</time></a></li>
+        <li data-cat="공공조달관리사"><a href="https://blog.naver.com/nuldonghang/224411048176" target="_blank" rel="noopener"><span class="cat">공공조달관리사</span><strong>공공조달관리사 필기시험 원서접수 5분만에 조기마감 ㅜㅜ</strong><time datetime="2026-09-14">2026.09.14</time></a></li>
+        <li data-cat="의료기기"><a href="https://blog.naver.com/nuldonghang/224410847522" target="_blank" rel="noopener"><span class="cat">의료기기</span><strong>의료기기 1등급 수입신고 절차와 유의사항</strong><time datetime="2026-09-14">2026.09.14</time></a></li>
+        <li data-cat="공공조달관리사"><a href="https://blog.naver.com/nuldonghang/224409518121" target="_blank" rel="noopener"><span class="cat">공공조달관리사</span><strong>국가계약법 및 지방계약법은 무엇이 다르고 계약문서의 해석은 어떻게 하는가요</strong><time datetime="2026-09-12">2026.09.12</time></a></li>
+        <li data-cat="공공조달관리사"><a href="https://blog.naver.com/nuldonghang/224408504648" target="_blank" rel="noopener"><span class="cat">공공조달관리사</span><strong>공공계약의 원칙은 무엇이며 부당특약 금지의 효력은 어떻게 되는가요</strong><time datetime="2026-09-11">2026.09.11</time></a></li>
+        <li data-cat="공공조달관리사"><a href="https://blog.naver.com/nuldonghang/224407901489" target="_blank" rel="noopener"><span class="cat">공공조달관리사</span><strong>녹색제품은 무엇이며 신제품(NEP)·신기술(NET)을 보유하면 우수제품으로 지정되는가요</strong><time datetime="2026-09-11">2026.09.11</time></a></li>
+        <li data-cat="공공조달관리사"><a href="https://blog.naver.com/nuldonghang/224407530531" target="_blank" rel="noopener"><span class="cat">공공조달관리사</span><strong>공공조달관리사 필기시험 수험자분들은 원서접수 전에 미리 대비하셔야 합니다</strong><time datetime="2026-09-10">2026.09.10</time></a></li>
+        <li data-cat="우선구매제도"><a href="https://blog.naver.com/nuldonghang/224406723570" target="_blank" rel="noopener"><span class="cat">우선구매제도</span><strong>창업한지 7년이내의 기업에게는 어마어마한 혜택이 있습니다</strong><time datetime="2026-09-10">2026.09.10</time></a></li>
+        <li data-cat="의료기기"><a href="https://blog.naver.com/nuldonghang/224405731327" target="_blank" rel="noopener"><span class="cat">의료기기</span><strong>의료기기 1등급 제조 신고 방법과 제출서류를 알려드립니다</strong><time datetime="2026-09-09">2026.09.09</time></a></li>
+        <li data-cat="공공조달관리사"><a href="https://blog.naver.com/nuldonghang/224405613691" target="_blank" rel="noopener"><span class="cat">공공조달관리사</span><strong>공공조달 우선구매 대상별 의무와 구매비율은 얼마인가요</strong><time datetime="2026-09-09">2026.09.09</time></a></li>
+        <li data-cat="공공조달관리사"><a href="https://blog.naver.com/nuldonghang/224404848003" target="_blank" rel="noopener"><span class="cat">공공조달관리사</span><strong>전략적 공공조달과 4대 정책분야는 무엇을 목표로 하나요</strong><time datetime="2026-09-08">2026.09.08</time></a></li>
+        <li data-cat="우선구매제도"><a href="https://blog.naver.com/nuldonghang/224404624494" target="_blank" rel="noopener"><span class="cat">우선구매제도</span><strong>장애인 소기업은 공공구매에서 고용비율 요건이 완화됩니다</strong><time datetime="2026-09-08">2026.09.08</time></a></li>
+        <li data-cat="공공조달관리사"><a href="https://blog.naver.com/nuldonghang/224404368572" target="_blank" rel="noopener"><span class="cat">공공조달관리사</span><strong>물품분류번호는 어떻게 매겨지고 나라장터 전용몰은 서로 어떻게 다른가요</strong><time datetime="2026-09-08">2026.09.08</time></a></li>
+        <li data-cat="공공조달관리사"><a href="https://blog.naver.com/nuldonghang/224403435611" target="_blank" rel="noopener"><span class="cat">공공조달관리사</span><strong>나라장터는 조달업무를 어떻게 처리하고 어떤 지원시스템으로 구성되나요</strong><time datetime="2026-09-07">2026.09.07</time></a></li>
+        <li data-cat="우선구매제도"><a href="https://blog.naver.com/nuldonghang/224403236178" target="_blank" rel="noopener"><span class="cat">우선구매제도</span><strong>여성기업의 공공구매 목표비율은 어떻게 되나요</strong><time datetime="2026-09-07">2026.09.07</time></a></li>
+        <li data-cat="공공조달관리사"><a href="https://blog.naver.com/nuldonghang/224402541435" target="_blank" rel="noopener"><span class="cat">공공조달관리사</span><strong>협상에 의한 계약은 언제 적용되고 낙찰자는 어떻게 정해지나요</strong><time datetime="2026-09-06">2026.09.06</time></a></li>
+        <li data-cat="공공조달관리사"><a href="https://blog.naver.com/nuldonghang/224400628749" target="_blank" rel="noopener"><span class="cat">공공조달관리사</span><strong>수의계약이 허용되는 경우 및 소액수의계약 기준금액</strong><time datetime="2026-09-04">2026.09.04</time></a></li>
+        <li data-cat="우선구매제도"><a href="https://blog.naver.com/nuldonghang/224398062337" target="_blank" rel="noopener"><span class="cat">우선구매제도</span><strong>기술개발제품 우선구매는 인증만 받으면 끝인가요</strong><time datetime="2026-09-02">2026.09.02</time></a></li>
+        <li data-cat="우선구매제도"><a href="https://blog.naver.com/nuldonghang/224396865118" target="_blank" rel="noopener"><span class="cat">우선구매제도</span><strong>중소기업만을 위한 우선구매 &#x27;중소기업제품 우선구매제도&#x27;</strong><time datetime="2026-09-01">2026.09.01</time></a></li>
+        <li data-cat="공공조달관리사"><a href="https://blog.naver.com/nuldonghang/224395628261" target="_blank" rel="noopener"><span class="cat">공공조달관리사</span><strong>공공조달의 기본원칙과 경쟁입찰</strong><time datetime="2026-08-31">2026.08.31</time></a></li>
+        <li data-cat="공공조달관리사"><a href="https://blog.naver.com/nuldonghang/224394879136" target="_blank" rel="noopener"><span class="cat">공공조달관리사</span><strong>공공조달의 정의와 이해관계자 이해하기</strong><time datetime="2026-08-30">2026.08.30</time></a></li>
+        <li data-cat="공공조달관리사"><a href="https://blog.naver.com/nuldonghang/224394836289" target="_blank" rel="noopener"><span class="cat">공공조달관리사</span><strong>조달청 출신이 알려주는 공공조달관리사 시험 핵심포인트</strong><time datetime="2026-08-30">2026.08.30</time></a></li>
+      </ul>
+      <p class="synced">네이버 블로그 최근 글 37편 · 2026.09.25 기준</p>
+<!--BLOG:END-->
+      <div class="more">
+        <button class="btn ghost" type="button" id="more-posts">글 더 보기</button>
+        <a class="btn ghost" href="https://blog.naver.com/nuldonghang" target="_blank" rel="noopener">네이버 블로그에서 보기</a>
+      </div>
+
+      <div class="exam">
+        <div>
+          <strong>공공조달관리사 CBT 예상문제</strong>
+          <p>조달청 근무 경험으로 구성한 실전 모의고사 5회분을 무료로 공개합니다.</p>
+        </div>
+        <div class="rounds" aria-label="회차 선택">
+          <a href="https://nuldonghang.github.io/pps-mock1/" target="_blank" rel="noopener">1회</a>
+          <a href="https://nuldonghang.github.io/pps-mock2/" target="_blank" rel="noopener">2회</a>
+          <a href="https://nuldonghang.github.io/pps-mock3/" target="_blank" rel="noopener">3회</a>
+          <a href="https://nuldonghang.github.io/pps-mock4/" target="_blank" rel="noopener">4회</a>
+          <a href="https://nuldonghang.github.io/pps-mock5/" target="_blank" rel="noopener">5회</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div>
+        <span class="label" style="color:inherit;opacity:.7">Contact</span>
+        <h2 style="margin-top:10px">공공조달 판로, 혼자 고민하지 마세요.</h2>
+        <p>어떤 계약방법이 맞는지, 어떤 인증부터 받아야 하는지 모르는 단계에서 연락 주셔도 됩니다. 현재 상황을 들은 뒤 갈 수 있는 경로부터 함께 정리합니다.</p>
+      </div>
+      <div class="phone">
+        <span class="label">전화 · 문자</span>
+        <span class="n" id="phone-number">010-7702-8496</span>
+        <div class="row">
+          <a class="btn primary" href="tel:01077028496">전화 걸기</a>
+          <button class="btn ghost" type="button" id="copy-phone">번호 복사</button>
+        </div>
+        <p class="status" id="copy-status" aria-live="polite"></p>
+        <dl class="ids">
+          <div><dt>카카오톡 ID</dt><dd>algowith</dd></div>
+          <div><dt>이메일</dt><dd>algowith@naver.com</dd></div>
+          <div><dt>블로그 ID</dt><dd>nuldonghang</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>늘동행 행정사사무소 · 대표 행정사 김재영 · 대한행정사회 정회원</span>
+    <span>카카오톡 algowith · algowith@naver.com · 블로그 <a href="https://blog.naver.com/nuldonghang" target="_blank" rel="noopener">blog.naver.com/nuldonghang</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('copy-phone');
+  var out=document.getElementById('copy-status');
+  var num=document.getElementById('phone-number');
+  btn.addEventListener('click',function(){
+    var text=num.textContent.trim();
+    function fallback(){
+      var r=document.createRange();r.selectNodeContents(num);
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+      out.textContent='번호를 선택했습니다. Ctrl+C로 복사하세요.';
+    }
+    try{
+      navigator.clipboard.writeText(text).then(function(){out.textContent='번호를 복사했습니다.';},fallback);
+    }catch(e){fallback();}
+  });
+})();
+
+// 실무 글: 분야 버튼으로 거르기 + 더 보기
+(function(){
+  var list=document.getElementById('post-list');
+  var more=document.getElementById('more-posts');
+  if(!list){more.hidden=true;return;}
+  var items=[].slice.call(list.children);
+  var cat='전체',limit=8;
+  function render(){
+    var shown=0,matched=0;
+    items.forEach(function(li){
+      var ok=cat==='전체'||li.dataset.cat===cat;
+      if(ok)matched++;
+      li.hidden=!(ok&&shown<limit);
+      if(!li.hidden)shown++;
+    });
+    more.hidden=matched<=limit;
+  }
+  document.querySelectorAll('.chips button').forEach(function(b){
+    b.addEventListener('click',function(){
+      cat=b.dataset.cat;limit=8;
+      document.querySelectorAll('.chips button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+      render();
+    });
+  });
+  more.addEventListener('click',function(){limit+=8;render();});
+  render();
+})();
+
+// 공지: 가로로 넘기는 띠 + 점 표시
+(function(){
+  var track=document.querySelector('.notice-track');
+  var dots=document.querySelectorAll('.notice-dots button');
+  if(!track||!dots.length)return;
+  function mark(){
+    var i=Math.round(track.scrollLeft/track.clientWidth);
+    dots.forEach(function(d,j){d.setAttribute('aria-current',i===j?'true':'false');});
+  }
+  dots.forEach(function(d,j){d.addEventListener('click',function(){track.scrollTo({left:j*track.clientWidth,behavior:'smooth'});});});
+  track.addEventListener('scroll',function(){window.requestAnimationFrame(mark);});
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce&&dots.length>1){
+    setInterval(function(){
+      if(track.matches(':hover'))return;
+      var i=(Math.round(track.scrollLeft/track.clientWidth)+1)%dots.length;
+      track.scrollTo({left:i*track.clientWidth,behavior:'smooth'});
+    },5000);
+  }
+})();
+</script>
+
+</body>
+</html>
