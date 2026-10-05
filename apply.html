@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>공공조달 무료 1차 진단 신청 | 늘동행 행정사사무소</title>
-<meta name="description" content="우리 회사 품목이 공공시장에서 얼마나 거래되는지, 조달청 데이터로 확인해 드립니다. 무료 1차 진단·입찰공고 알림 신청.">
+<title>공공조달 무료 진단 신청 | 늘동행 행정사사무소</title>
+<meta name="description" content="우리 회사 품목이 공공시장에서 얼마나 거래되는지, 조달청 데이터로 확인해 드립니다. 무료 진단·입찰공고 알림 신청.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
@@ -43,7 +43,7 @@
   h1{font-family:var(--serif); font-size:clamp(28px,5.2vw,44px); line-height:1.3;
     margin:0 0 16px; letter-spacing:-.02em; text-wrap:balance}
   h1 em{font-style:normal; color:var(--accent)}
-  .lede{font-size:clamp(16px,2.2vw,18px); color:var(--ink-2); margin:0 0 28px; max-width:62ch}
+  .lede{font-size:clamp(16px,2.2vw,18px); color:var(--ink-2); margin:0 0 28px}
   .stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin:0 0 28px}
   .stat{border:1px solid var(--rule); border-top:3px solid var(--accent); background:var(--paper); padding:14px 16px}
   .stat .n{font-family:var(--serif); font-size:clamp(22px,3.4vw,28px); color:var(--accent); line-height:1.2;
@@ -62,7 +62,7 @@
   section{padding-block:40px}
   section.alt{background:var(--paper); border-block:1px solid var(--rule)}
   h2{font-family:var(--serif); font-size:clamp(21px,3.2vw,27px); margin:0 0 8px; letter-spacing:-.01em}
-  .sub{color:var(--ink-2); margin:0 0 22px; max-width:62ch}
+  .sub{color:var(--ink-2); margin:0 0 22px}
   h3{font-size:17px; margin:0 0 6px}
 
   .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px}
@@ -142,7 +142,7 @@
 
 <div class="hero">
   <div class="wrap">
-    <p class="eyebrow">수도권 산업단지 제조기업 대상 · 무료 1차 진단</p>
+    <p class="eyebrow">수도권 산업단지 제조기업 대상 · 무료 진단</p>
     <h1>우리 회사 품목은 공공시장에서<br><em>얼마나 팔리고 있을까요</em></h1>
     <p class="lede">
       공공기관은 한 달에 2조 6천억원어치 물품을 삽니다. 그 거래의 80~90%는 입찰이 아니라
@@ -220,7 +220,7 @@
 
 <section class="alt" id="apply">
   <div class="wrap">
-    <h2>무료 1차 진단 신청</h2>
+    <h2>무료 진단 신청</h2>
     <p class="sub">아래를 채우고 <b>신청 내용 만들기</b>를 누르시면 문자로 보낼 내용이 만들어집니다.
       그대로 보내 주시거나, 전화 주셔도 됩니다.</p>
 
@@ -329,11 +329,11 @@
           <p class="quote">공공조달의 내부 구조를 아는 사람이 설계합니다.</p>
           <dl style="margin-top:16px">
             <dt>조달청 출신 · 중앙부처 25년</dt>
-            <dd>구매사업국·지방조달청·조달품질원 근무</dd>
+            <dd>구매사업국·서울지방조달청·조달품질원 등 근무</dd>
             <dt>다루는 일</dt>
             <dd>공장등록 · 직접생산확인증명 · 물품식별번호 · MAS · 혁신제품 · 우수제품 · 여성기업 등 의무구매 · 품질인증</dd>
             <dt>상담 방식</dt>
-            <dd>전화·방문 모두 가능. 1차 진단은 비용이 없습니다.</dd>
+            <dd>전화 또는 문자 등으로 연락주시면 늘동행합니다.</dd>
           </dl>
         </div>
         <div class="panel">
@@ -353,12 +353,13 @@
 <footer>
   <div class="wrap">
     <div>
-      <b><a href="index.html" style="color:#fff;text-decoration:none">늘동행 행정사사무소</a></b>
-      <div>공공조달 · 기업행정 · 출입국비자 — 중소·벤처기업의 공공조달 진입과 성장을 돕습니다.</div>
+      <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px">
+        <b style="margin-bottom:0"><a href="index.html" style="color:#fff;text-decoration:none">늘동행 행정사사무소</a></b>
+        <span style="font-size:13px;color:#9AACB5">사업자등록번호 635-08-03570</span>
+      </div>
+      <div>공공조달 · 기업행정 — 중소·벤처기업의 공공조달 진입과 성장을 돕습니다.</div>
       <div class="src">
-        데이터 출처: 조달청 나라장터 오픈API(종합쇼핑몰 납품요구 내역 2026.7~9월 전수 315,148건),
-        한국산업단지공단 팩토리온 공장등록정보 — 2026-10-05 조회.
-        수치는 조회 시점 기준이며 분기마다 갱신합니다.
+        데이터 출처: 조달청 나라장터 오픈API, 한국산업단지공단 팩토리온 공장등록정보
       </div>
     </div>
     <div>
