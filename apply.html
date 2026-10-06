@@ -13,7 +13,7 @@
     --paper:#FFFFFF; --ground:#F4F6F6;
     --ink:#15232C; --ink-2:#44545E; --ink-3:#6B7A83;
     --rule:#D6DDDC; --accent:#1D4E6E; --accent-2:#2A6B91; --accent-ink:#FFFFFF;
-    --gold:#8C6A26; --gold-bg:#FBF6EA;
+    --gold:#8C6A26; --gold-bg:#FBF6EA; --warm:#8a5a00;
     --ok:#1D6B45; --ok-bg:#EEF7F1;
     --serif:'Nanum Myeongjo', 'Nanum Myeongjo', serif;
     --sans:'IBM Plex Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
@@ -109,11 +109,11 @@
 
   .side .panel + .panel{margin-top:16px}
   .side dl{margin:0; font-size:15px}
-  .side dt{font-weight:600; margin-top:12px}
+  .side dt{font-weight:700; margin-top:12px; color:var(--warm)}
   .side dt:first-child{margin-top:0}
   .side dd{margin:2px 0 0; color:var(--ink-2)}
-  .quote{font-family:var(--serif); font-size:17px; line-height:1.75; color:var(--ink);
-    border-left:3px solid var(--accent); padding-left:16px; margin:0}
+  .quote{font-family:var(--serif); font-size:17px; line-height:1.75; color:var(--warm);
+    border-left:3px solid var(--warm); padding-left:16px; margin:0}
 
   footer{background:var(--ink); color:#D8E0E4; padding-block:32px; font-size:14px}
   footer .wrap{display:grid; grid-template-columns:1.3fr .7fr; gap:24px}
