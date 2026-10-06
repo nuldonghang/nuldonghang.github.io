@@ -286,6 +286,18 @@
         </div>
 
         <div class="field">
+          <label for="src">어떻게 알게 되셨나요</label>
+          <select id="src" name="src">
+            <option value="">선택하지 않음</option>
+            <option>우편물</option>
+            <option>설명회·교육</option>
+            <option>전시회·상담회</option>
+            <option>블로그·검색</option>
+            <option>소개</option>
+          </select>
+        </div>
+
+        <div class="field">
           <label>관심 있는 것 (복수 선택)</label>
           <div class="checks">
             <label class="chk"><input type="checkbox" name="want" value="시장 리포트" checked> 우리 품목 시장 리포트</label>
@@ -386,6 +398,25 @@
   var OFFICE = '01077028496';
   var MAIL = 'algowith@naver.com';
 
+  // 주소 끝의 ?s= 값으로 유입경로를 자동 기록한다 (인쇄물·채널마다 다른 QR)
+  var 경로표 = {
+    dm1:'우편 DM 1차', dm2:'우편 DM 2차', dm3:'우편 DM 3차',
+    lf:'리플릿', talk:'설명회·강연', expo:'전시회·상담회',
+    blog:'블로그', hp:'홈페이지', kakao:'카카오톡 채널', ad:'온라인 광고'
+  };
+  var 채널 = '';
+  try {
+    var s = new URLSearchParams(location.search).get('s');
+    if (s && 경로표[s]) {
+      채널 = 경로표[s];
+      var sel = document.getElementById('src');
+      var 보임 = {'우편 DM 1차':'우편물','우편 DM 2차':'우편물','우편 DM 3차':'우편물',
+                  '리플릿':'설명회·교육','설명회·강연':'설명회·교육','전시회·상담회':'전시회·상담회',
+                  '블로그':'블로그·검색','홈페이지':'블로그·검색'};
+      if (sel && 보임[채널]) { sel.value = 보임[채널]; }
+    }
+  } catch (e) {}
+
   function val(id){ var e = document.getElementById(id); return e ? e.value.trim() : ''; }
 
   f.addEventListener('submit', function(ev){
@@ -418,6 +449,8 @@
     lines.push('생산품: ' + product);
     if(val('area')) lines.push('소재지: ' + val('area'));
     if(val('emp')) lines.push('종업원: ' + val('emp'));
+    if(val('src')) lines.push('알게 된 경로: ' + val('src'));
+    if(채널) lines.push('유입: ' + 채널);
     if(wants.length) lines.push('관심: ' + wants.join(', '));
     if(val('memo')) lines.push('문의: ' + val('memo'));
     lines.push('수집·이용 동의: 예');
