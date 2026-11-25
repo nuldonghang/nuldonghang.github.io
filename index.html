@@ -116,7 +116,22 @@ section.block.tint{background:var(--tint);border-top:0}
 .nav{gap:8px}
 @media (max-width:1500px){.head-tel{display:none}}
 @media (max-width:1300px){.nav a{padding:0 12px;font-size:15px}.nav{gap:6px}}
-@media (max-width:1180px){.nav{display:none}.head-r{margin-left:auto}}
+/* 좁은 화면(태블릿·폰): 로고 아래에 메뉴 단추를 모두 보이게 — 태블릿은 한 줄, 폰은 작은 글씨 두 줄(4개+3개) */
+@media (max-width:1180px){
+  :root{--head:126px}
+  .top .wrap{flex-wrap:wrap;height:auto;padding-top:12px;row-gap:10px}
+  .head-r{margin-left:auto}
+  .nav{order:3;flex:0 0 100%;margin:0;padding:0 0 12px;gap:6px;flex-wrap:wrap;justify-content:center}
+  .nav a{height:38px;padding:0 14px;font-size:14.5px}
+}
+@media (max-width:760px){
+  :root{--head:150px}
+  .top .wrap{padding-top:14px;row-gap:16px}
+  /* 12칸 격자: 윗줄 3개는 4칸씩, 아랫줄 4개는 3칸씩 → 두 줄의 좌우 끝선이 같음 */
+  .nav{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px;padding-bottom:12px}
+  .nav a{grid-column:span 3;justify-content:center;height:34px;padding:0 2px;font-size:13px;letter-spacing:-.04em}
+  .nav a:nth-child(-n+3){grid-column:span 4}
+}
 @media (max-width:760px){.head-r{display:none}.top .wrap{justify-content:center}.brand .logo{height:32px}}
 
 /* ── 첫 화면: 사진 + 왼쪽 정렬 ── */
@@ -555,10 +570,16 @@ footer a:hover{text-decoration:underline}
     es.forEach(function(e){
       if(!e.isIntersecting)return;
       links.forEach(function(a){a.removeAttribute('aria-current');});
-      var a=map[e.target.id];if(a)a.setAttribute('aria-current','true');
+      var a=map[e.target.id];if(!a)return;
+      a.setAttribute('aria-current','true');
+      // 폰에서 메뉴 줄이 옆으로 밀려 있으면 켜진 단추를 가운데로 가져옴
+      var nav=a.parentNode;
+      if(nav.scrollWidth>nav.clientWidth)nav.scrollTo({left:a.offsetLeft-(nav.clientWidth-a.offsetWidth)/2,behavior:'smooth'});
     });
   },{rootMargin:'-45% 0px -50% 0px'});
   Object.keys(map).forEach(function(id){io.observe(document.getElementById(id));});
+  // 첫 화면으로 돌아오면 켜진 단추를 끔
+  var hero=document.querySelector('.hero');if(hero)io.observe(hero);
 })();
 
 // 공지 띠
