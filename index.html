@@ -70,7 +70,7 @@ p{margin:0}
 /* 섹션 머리: 왼쪽 제목, 오른쪽 설명 */
 section.block{padding-block:clamp(72px,10vw,128px);border-top:1px solid var(--rule)}
 section.block.tint{background:var(--tint);border-top:0}
-.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 64px;align-items:end;margin-bottom:clamp(36px,5vw,56px)}
+.sh{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:16px 64px;align-items:end;margin-bottom:clamp(36px,5vw,56px)}
 @media (max-width:860px){.sh{grid-template-columns:1fr}}
 .sh .no{display:inline-block;font-size:15px;font-weight:700;color:var(--grow);letter-spacing:0;margin-bottom:16px;padding-left:12px;border-left:3px solid var(--m1);line-height:1.2}
 .sh h2{font-family:var(--serif);font-weight:700;font-size:clamp(30px,3.6vw,42px);line-height:1.3;letter-spacing:-.025em;color:var(--navy)}
@@ -349,8 +349,11 @@ footer a:hover{text-decoration:underline}
       <span class="tag">공지</span>
       <div class="notice-track">
         <a href="https://blog.naver.com/nuldonghang/224483659074" target="_blank" rel="noopener">마스 공고가 없는 우리 제품도 신규 수요물자로 등록할 수 있을까요</a>
+        <a href="https://blog.naver.com/nuldonghang/224403236178" target="_blank" rel="noopener">여성기업확인을 받으면 무엇이 좋은가요</a>
+        <a href="https://blog.naver.com/nuldonghang/224420545573" target="_blank" rel="noopener">공공조달 낙찰자선정 &#x27;협상에 의한 계약&#x27; 총정리</a>
+        <a href="https://blog.naver.com/nuldonghang/224417221234" target="_blank" rel="noopener">수의계약 금액기준을 2천만원만 알면 반은 손해입니다</a>
       </div>
-      <div class="notice-dots"><button type="button" aria-label="공지 1" aria-current="true"></button></div>
+      <div class="notice-dots"><button type="button" aria-label="공지 1" aria-current="true"></button><button type="button" aria-label="공지 2"></button><button type="button" aria-label="공지 3"></button><button type="button" aria-label="공지 4"></button></div>
 <!--NOTICE:END-->
     </div>
   </section>
@@ -358,14 +361,14 @@ footer a:hover{text-decoration:underline}
   <section class="block tint" id="why">
     <div class="wrap">
       <div class="sh">
-        <div><span class="no">사무소 소개</span><h2>심사하던 쪽의 경험으로<br>준비합니다</h2></div>
-        <p>공공조달 서류는 결국 계약담당자와 심사자가 읽습니다. 그 자리에서 일한 경험이 늘동행의 출발점입니다.</p>
+        <div><span class="no">사무소 소개</span><h2>심사하던 실무자의 경험으로<br>준비합니다</h2></div>
+        <p>공공조달 서류는 결국 계약담당자와 심사자가 확인하고 검토합니다. 그 자리에서 일한 실무 경험이 늘동행의 출발점입니다.</p>
       </div>
       <dl class="facts">
         <div><dt>중앙부처 근무</dt><dd class="big num">25<small>년</small></dd><dd><p>조달청과 과학기술정보통신부 등 중앙부처에서 쌓은 실무 경력</p></dd></div>
-        <div><dt>조달청 근무 부서</dt><dd class="words">구매사업국<br>서울지방조달청<br>조달품질원</dd><dd><p>구매·계약·품질 현장에서 서류를 직접 심사</p></dd></div>
-        <div><dt>보유 자격</dt><dd class="words">행정사<br>공공조달관리사</dd><dd><p>조달청 내자구매계약관 자격 보유, 대한행정사회 정회원</p></dd></div>
-        <div><dt>공개한 실무 글</dt><dd class="big num"><span id="post-total">—</span><small>편</small></dd><dd><p>네이버 블로그에 연재 중인 공공조달·행정 실무 글</p></dd></div>
+        <div><dt>조달청 근무 부서</dt><dd class="words">구매사업국<br>서울지방조달청<br>조달품질원 등</dd><dd><p>구매·계약·품질 현장에서 서류를 직접 심사</p></dd></div>
+        <div><dt>보유 자격</dt><dd class="words">행정사<br>공공조달관리사</dd><dd><p>조달청 내자구매계약관 자격<br>대한행정사회 정회원</p></dd></div>
+        <div><dt>공개한 실무 글</dt><dd class="big num"><span id="post-total">—</span><small>편</small></dd><dd><p>네이버 블로그에 연재 중인 <span style="white-space:nowrap">공공조달·행정</span> 실무 글 전체</p></dd></div>
       </dl>
     </div>
   </section>
@@ -398,18 +401,22 @@ footer a:hover{text-decoration:underline}
   <section class="block tint" id="fields">
     <div class="wrap">
       <div class="sh">
-        <div><span class="no">업무 분야</span><h2>공공조달을 중심으로<br>한 창구에서 상담합니다</h2></div>
+        <div><span class="no">업무 분야</span><h2>공공조달을 중심으로<br>대표 행정사가 직접 수행합니다</h2></div>
         <p>계약방법 선택과 등록·인증은 물론, 조달 진입에 앞서 필요한 기업 확인과 인허가까지 함께 살펴봅니다.</p>
       </div>
       <div class="area">
         <div class="area-h"><h3>공공조달</h3><p>계약방법 선택부터 등록·인증까지, 조달청 실무 기준으로 서류를 준비합니다.</p></div>
         <ul class="items">
-          <li><b>수의계약 · 사유서 작성</b><span>국가계약법</span></li>
-          <li><b>다수공급자계약(MAS) 등록</b><span>2단계경쟁</span></li>
-          <li><b>협상에 의한 계약 제안 준비</b><span>기술·가격</span></li>
-          <li><b>직접생산확인 증명</b><span>중소벤처기업부</span></li>
-          <li><b>우선구매제도 활용</b><span>중소·여성·장애인</span></li>
-          <li><b>혁신제품 · 기술개발제품</b><span>NEP · NET · EPC</span></li>
+          <li><b>입찰참가자격</b></li>
+          <li><b>직접생산확인</b></li>
+          <li><b>다수공급자계약(MAS) 등록</b></li>
+          <li><b>벤처나라</b></li>
+          <li><b>혁신제품</b></li>
+          <li><b>우수조달물품</b></li>
+          <li><b>G-PASS</b></li>
+          <li><b>종합쇼핑몰</b></li>
+          <li><b>제안서</b></li>
+          <li><b>수요기관 입찰집행</b></li>
         </ul>
       </div>
       <div class="area">
@@ -478,7 +485,7 @@ footer a:hover{text-decoration:underline}
         <li><a href="https://blog.naver.com/nuldonghang/224472556074" target="_blank" rel="noopener"><span class="cat">공공조달관리사</span><strong>(실기10회차_마지막) 공공조달관리사 실기시험 예상문제 모의고사</strong><time datetime="2026-11-11">2026.11.11</time></a></li>
         <li><a href="https://blog.naver.com/nuldonghang/224471434502" target="_blank" rel="noopener"><span class="cat">공공조달관리사</span><strong>(실기9회차) 공공조달관리사 실기시험 예상문제 모의고사</strong><time datetime="2026-11-10">2026.11.10</time></a></li>
       </ul>
-      <p class="synced" data-total="49">네이버 블로그 최근 글 49편 중 12편 · 2026.11.25 기준</p>
+      <p class="synced" data-total="121">네이버 블로그 전체 121편 중 최근 12편 · 2026.11.26 기준</p>
 <!--BLOG:END-->
       <div class="slide-foot">
         <div class="arrows">
