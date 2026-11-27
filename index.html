@@ -911,15 +911,17 @@ section.block.ph{padding-top:0}
   document.getElementById('prev').addEventListener('click',function(){list.scrollBy({left:-step(),behavior:'smooth'});});
   document.getElementById('next').addEventListener('click',function(){list.scrollBy({left:step(),behavior:'smooth'});});
 
-  // 모바일: 카드가 2초마다 왼쪽으로 한 장씩 넘어가며 끝없이 돈다 (2026-11-27)
-  // 넘어간 첫 카드는 맨 뒤로 옮겨 붙여 계속 회전. 손으로 만지면 6초 쉬었다가 다시 돈다.
-  var mq=window.matchMedia('(max-width:760px)');
-  var pausedUntil=0,busy=false;
+  // PC·모바일 모두: 카드가 2초마다 왼쪽으로 한 장씩 넘어가며 끝없이 돈다 (2026-11-27, PC도 지시)
+  // 넘어간 첫 카드는 맨 뒤로 옮겨 붙여 계속 회전. 손으로 만지거나 화살표를 누르면 6초 쉬고,
+  // PC에서 마우스를 카드 위에 올려 두는 동안은 멈춘다.
+  var pausedUntil=0,busy=false,hover=false;
   function pause(){pausedUntil=Date.now()+6000;}
   ['touchstart','pointerdown','wheel'].forEach(function(ev){list.addEventListener(ev,pause,{passive:true});});
   ['prev','next'].forEach(function(id){document.getElementById(id).addEventListener('click',pause);});
+  list.addEventListener('mouseenter',function(){hover=true;});
+  list.addEventListener('mouseleave',function(){hover=false;});
   function rotate(){
-    if(!mq.matches||busy||document.hidden||Date.now()<pausedUntil||!list.offsetParent)return;
+    if(busy||hover||document.hidden||Date.now()<pausedUntil||!list.offsetParent)return;
     var s=step();busy=true;
     list.scrollBy({left:s,behavior:'smooth'});
     setTimeout(function(){
