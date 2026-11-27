@@ -432,6 +432,8 @@ section.block.ph{padding-top:0}
 .photo-head::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--img) center/cover no-repeat}
 .photo-head::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--veil1) 0%,var(--veil1) 20%,var(--veil2) 42%,var(--veil3) 66%)}
 .photo-head .wrap{padding-block:clamp(72px,10vw,128px) clamp(52px,6vw,84px)}
+/* 모바일: 제목이 오른쪽 끝까지 닿아 사진과 겹치므로(예: 업무 분야 「직접」) 흐림을 오른쪽 끝까지 약하게 이어 준다 (2026-11-27) */
+@media (max-width:760px){.photo-head::after{background:linear-gradient(90deg,var(--veil1) 0%,var(--veil1) 30%,var(--veil2) 62%,var(--veil2) 100%)}}
 .photo-head .sh{margin-bottom:0}
 .photo-head .sh h2{color:var(--head-ink) !important}
 /* 설명글: 흰 판 없이 글자만, 사진 위에서도 읽히도록 흰 번짐 그림자 (2026-11-27) */
