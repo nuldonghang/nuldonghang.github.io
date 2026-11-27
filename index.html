@@ -433,13 +433,14 @@ section.block.ph{padding-top:0}
 .photo-head::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--veil1) 0%,var(--veil1) 20%,var(--veil2) 42%,var(--veil3) 66%)}
 .photo-head .wrap{padding-block:clamp(72px,10vw,128px) clamp(52px,6vw,84px)}
 /* 업무 분야: 휴대폰에서만 배경 사진을 흐리지 않은 원본 그대로 (2026-11-27 지시, PC는 기존 흐림 유지) */
-/* 휴대폰: 업무 분야·진입 경로·진행 방식은 사진 전체를 흐리지 않고, 글자 뒤에만 반투명 흐림 판을 깐다 (2026-11-27) */
+/* 휴대폰: 업무 분야·진입 경로·진행 방식은 사진 전체를 흐리지 않는다 (2026-11-27).
+   진입 경로·진행 방식은 글자 뒤에만 반투명 흐림 판, 업무 분야는 판 없이 사진 원본 위에 글자만 */
 @media (max-width:760px){
   #fields .photo-head::after,#route .photo-head::after,#process .photo-head::after{display:none}
-  #fields .photo-head .sh,#route .photo-head .sh,#process .photo-head .sh{background:rgba(255,255,255,.66);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-radius:10px;padding:20px 16px;margin-inline:-6px}
+  #route .photo-head .sh,#process .photo-head .sh{background:rgba(255,255,255,.66);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-radius:10px;padding:20px 16px;margin-inline:-6px}
 }
-@media (max-width:760px) and (prefers-color-scheme: dark){:root:not([data-theme="light"]) #fields .photo-head .sh,:root:not([data-theme="light"]) #route .photo-head .sh,:root:not([data-theme="light"]) #process .photo-head .sh{background:rgba(11,18,32,.66)}}
-@media (max-width:760px){:root[data-theme="dark"] #fields .photo-head .sh,:root[data-theme="dark"] #route .photo-head .sh,:root[data-theme="dark"] #process .photo-head .sh{background:rgba(11,18,32,.66)}}
+@media (max-width:760px) and (prefers-color-scheme: dark){:root:not([data-theme="light"]) #route .photo-head .sh,:root:not([data-theme="light"]) #process .photo-head .sh{background:rgba(11,18,32,.66)}}
+@media (max-width:760px){:root[data-theme="dark"] #route .photo-head .sh,:root[data-theme="dark"] #process .photo-head .sh{background:rgba(11,18,32,.66)}}
 /* 휴대폰에서만 줄을 바꾸는 <br class="br-m"> (업무 분야 「직접 수행」을 다음 줄로) */
 .br-m{display:none}
 @media (max-width:760px){.br-m{display:inline}}.photo-head .sh{margin-bottom:0}
@@ -918,10 +919,11 @@ section.block.ph{padding-top:0}
   document.getElementById('prev').addEventListener('click',function(){list.scrollBy({left:-step(),behavior:'smooth'});});
   document.getElementById('next').addEventListener('click',function(){list.scrollBy({left:step(),behavior:'smooth'});});
 
-  // PC·모바일 모두: 카드가 2초마다 왼쪽으로 한 장씩 넘어가며 끝없이 돈다 (2026-11-27, PC도 지시)
+  // PC·모바일 모두: 카드가 (휴대폰 2초·PC 4초)마다 왼쪽으로 한 장씩 넘어가며 끝없이 돈다 (2026-11-27, PC도 지시)
   // 넘어간 첫 카드는 맨 뒤로 옮겨 붙여 계속 회전. 손으로 만지거나 화살표를 누르면 6초 쉬고,
   // PC에서 마우스를 카드 위에 올려 두는 동안은 멈춘다.
-  var pausedUntil=0,busy=false,hover=false;
+  var pausedUntil=0,busy=false,hover=false,lastTurn=Date.now();
+  var phone=window.matchMedia('(max-width:760px)');
   function pause(){pausedUntil=Date.now()+6000;}
   ['touchstart','pointerdown','wheel'].forEach(function(ev){list.addEventListener(ev,pause,{passive:true});});
   ['prev','next'].forEach(function(id){document.getElementById(id).addEventListener('click',pause);});
@@ -929,6 +931,8 @@ section.block.ph{padding-top:0}
   list.addEventListener('mouseleave',function(){hover=false;});
   function rotate(){
     if(busy||hover||document.hidden||Date.now()<pausedUntil||!list.offsetParent)return;
+    if(Date.now()-lastTurn<(phone.matches?2000:4000))return;  // 휴대폰 2초, PC 4초마다 한 장
+    lastTurn=Date.now();
     var s=step();busy=true;
     list.scrollBy({left:s,behavior:'smooth'});
     setTimeout(function(){
@@ -942,7 +946,7 @@ section.block.ph{padding-top:0}
       busy=false;
     },750);
   }
-  setInterval(rotate,2000);  // 2초마다 한 장 (2026-11-27, 3.5초에서 빠르게)
+  setInterval(rotate,250);  // 간격은 rotate() 안에서 판단: 휴대폰 2초, PC 4초 (2026-11-27)
 })();
 
 // 카카오톡: 개인 ID라 바로 대화창을 열 수 없어 ID를 복사하고 안내
