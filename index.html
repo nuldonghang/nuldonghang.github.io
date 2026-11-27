@@ -433,7 +433,14 @@ section.block.ph{padding-top:0}
 .photo-head::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--veil1) 0%,var(--veil1) 20%,var(--veil2) 42%,var(--veil3) 66%)}
 .photo-head .wrap{padding-block:clamp(72px,10vw,128px) clamp(52px,6vw,84px)}
 /* 업무 분야: 휴대폰에서만 배경 사진을 흐리지 않은 원본 그대로 (2026-11-27 지시, PC는 기존 흐림 유지) */
-@media (max-width:760px){#fields .photo-head::after{display:none}}/* 휴대폰에서만 줄을 바꾸는 <br class="br-m"> (업무 분야 「직접 수행」을 다음 줄로) */
+/* 휴대폰: 업무 분야·진입 경로·진행 방식은 사진 전체를 흐리지 않고, 글자 뒤에만 반투명 흐림 판을 깐다 (2026-11-27) */
+@media (max-width:760px){
+  #fields .photo-head::after,#route .photo-head::after,#process .photo-head::after{display:none}
+  #fields .photo-head .sh,#route .photo-head .sh,#process .photo-head .sh{background:rgba(255,255,255,.66);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-radius:10px;padding:20px 16px;margin-inline:-6px}
+}
+@media (max-width:760px) and (prefers-color-scheme: dark){:root:not([data-theme="light"]) #fields .photo-head .sh,:root:not([data-theme="light"]) #route .photo-head .sh,:root:not([data-theme="light"]) #process .photo-head .sh{background:rgba(11,18,32,.66)}}
+@media (max-width:760px){:root[data-theme="dark"] #fields .photo-head .sh,:root[data-theme="dark"] #route .photo-head .sh,:root[data-theme="dark"] #process .photo-head .sh{background:rgba(11,18,32,.66)}}
+/* 휴대폰에서만 줄을 바꾸는 <br class="br-m"> (업무 분야 「직접 수행」을 다음 줄로) */
 .br-m{display:none}
 @media (max-width:760px){.br-m{display:inline}}.photo-head .sh{margin-bottom:0}
 .photo-head .sh h2{color:var(--head-ink) !important}
