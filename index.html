@@ -508,6 +508,13 @@ section.block.ph{padding-top:0}
 .quick .map i{color:#1E6FD9}
 @media (prefers-reduced-motion: reduce){.quick .q i{transition:none}}
 @media (max-width:1100px){.quick{display:none}}
+/* 모바일·태블릿: 카카오톡·네이버 톡톡 두 버튼만 오른쪽 아래에 */
+.quick.mfloat{display:none}
+@media (max-width:1100px){
+  .quick.mfloat{display:flex;top:auto;transform:none;right:14px;bottom:24px;gap:12px}
+  .quick.mfloat .q i{width:50px;height:50px}
+}
+@media (max-width:760px){.quick.mfloat{bottom:calc(72px + env(safe-area-inset-bottom,0px))}}
 .toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);z-index:40;background:var(--navy);color:#fff;padding:12px 18px;border-radius:6px;font-size:14.5px;box-shadow:0 8px 24px rgba(0,0,0,.2);opacity:0;pointer-events:none;transition:opacity .2s}
 .toast.show{opacity:1}
 .mbar{display:none}
@@ -874,6 +881,11 @@ section.block.ph{padding-top:0}
   <a class="call" href="tel:01077028496">전화 상담</a>
   <a class="go" href="apply.html">무료 진단 신청</a>
 </nav>
+<!-- 모바일·태블릿 상담 버튼 (2026-11-27): PC 오른쪽 빠른 메뉴가 숨는 화면에서 카카오톡·네이버 톡톡만 오른쪽 아래에 띄운다 -->
+<nav class="mfloat quick" aria-label="메신저 상담">
+  <a class="q kakao" href="https://pf.kakao.com/_ixfCjX/chat" target="_blank" rel="noopener" aria-label="카카오톡 채널 상담"><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5C6.75 3.5 2.5 6.86 2.5 11c0 2.65 1.75 4.98 4.4 6.3l-.9 3.3c-.08.3.26.54.52.37l3.95-2.6c.5.06 1 .1 1.53.1 5.25 0 9.5-3.36 9.5-7.5S17.25 3.5 12 3.5z"/></svg></i><span>카카오톡</span></a>
+  <a class="q talk" href="https://talk.naver.com/ct/wio0fjr" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7l-4.5 3.6V17H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm4 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zm4 0a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zm4 0a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg></i><span>네이버 톡톡</span></a>
+</nav>
 
 <script>
 // 실무 글 슬라이드 + 글 수
@@ -886,9 +898,33 @@ section.block.ph{padding-top:0}
   var bt=document.getElementById('blog-total');
   if(bt){ if(synced&&synced.dataset.total){bt.textContent=synced.dataset.total;bt.setAttribute('data-count',synced.dataset.total);} else { var w=bt.closest('.blog-total-wrap'); if(w)w.remove(); } }
   if(!list)return;
-  function step(){var li=list.querySelector('li');return li?li.getBoundingClientRect().width+32:300;}
+  function step(){var li=list.querySelector('li');var g=parseFloat(getComputedStyle(list).columnGap)||32;return li?li.getBoundingClientRect().width+g:300;}
   document.getElementById('prev').addEventListener('click',function(){list.scrollBy({left:-step(),behavior:'smooth'});});
   document.getElementById('next').addEventListener('click',function(){list.scrollBy({left:step(),behavior:'smooth'});});
+
+  // 모바일: 카드가 3.5초마다 왼쪽으로 한 장씩 넘어가며 끝없이 돈다 (2026-11-27)
+  // 넘어간 첫 카드는 맨 뒤로 옮겨 붙여 계속 회전. 손으로 만지면 6초 쉬었다가 다시 돈다.
+  var mq=window.matchMedia('(max-width:760px)');
+  var pausedUntil=0,busy=false;
+  function pause(){pausedUntil=Date.now()+6000;}
+  ['touchstart','pointerdown','wheel'].forEach(function(ev){list.addEventListener(ev,pause,{passive:true});});
+  ['prev','next'].forEach(function(id){document.getElementById(id).addEventListener('click',pause);});
+  function rotate(){
+    if(!mq.matches||busy||document.hidden||Date.now()<pausedUntil||!list.offsetParent)return;
+    var s=step();busy=true;
+    list.scrollBy({left:s,behavior:'smooth'});
+    setTimeout(function(){
+      var first=list.querySelector('li');
+      if(first){
+        list.style.scrollSnapType='none';
+        list.appendChild(first);
+        list.scrollLeft=Math.max(0,list.scrollLeft-s);
+        list.style.scrollSnapType='';
+      }
+      busy=false;
+    },750);
+  }
+  setInterval(rotate,3500);
 })();
 
 // 카카오톡: 개인 ID라 바로 대화창을 열 수 없어 ID를 복사하고 안내
