@@ -514,16 +514,20 @@ section.block.ph{padding-top:0}
   .quick.mfloat{display:flex;top:auto;transform:none;right:14px;bottom:24px;gap:12px}
   .quick.mfloat .q i{width:50px;height:50px}
 }
-@media (max-width:760px){.quick.mfloat{bottom:calc(72px + env(safe-area-inset-bottom,0px))}}
 .toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);z-index:40;background:var(--navy);color:#fff;padding:12px 18px;border-radius:6px;font-size:14.5px;box-shadow:0 8px 24px rgba(0,0,0,.2);opacity:0;pointer-events:none;transition:opacity .2s}
 .toast.show{opacity:1}
 .mbar{display:none}
 @media (max-width:760px){
-  .mbar{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:25;padding-bottom:env(safe-area-inset-bottom,0)}
-  .mbar a{height:56px;display:grid;place-items:center;font-weight:700;font-size:15.5px;text-decoration:none}
-  .mbar .call{background:#fff;color:var(--navy);border-top:1px solid var(--rule)}
-  .mbar .go{background:var(--navy);color:#fff}
-  body{padding-bottom:56px}
+  /* 하단 바: 전화 · 카카오톡 · 네이버 톡톡 · 이메일 (2026-11-27, 「무료 진단 신청」 자리 교체) */
+  .mbar{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:25;padding-bottom:env(safe-area-inset-bottom,0);background:#fff;border-top:1px solid var(--rule);box-shadow:0 -4px 14px rgba(7,20,51,.08)}
+  .mbar a{height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-weight:700;font-size:12.5px;letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
+  .mbar svg{width:22px;height:22px}
+  .mbar .call{background:#fff;color:var(--navy)}
+  .mbar .kakao{background:#FEE500;color:#3A1D1D}
+  .mbar .talk{background:#03C75A;color:#fff}
+  .mbar .mail{background:var(--navy);color:#fff}
+  body{padding-bottom:60px}
+  .quick.mfloat{display:none}  /* 휴대폰은 하단 바에 같은 버튼이 있으므로 떠 있는 버튼을 숨김 */
 }
 </style>
 </head>
@@ -878,8 +882,10 @@ section.block.ph{padding-top:0}
 </nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <nav class="mbar" aria-label="빠른 상담">
-  <a class="call" href="tel:01077028496">전화 상담</a>
-  <a class="go" href="apply.html">무료 진단 신청</a>
+  <a class="call" href="tel:01077028496"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z"/></svg>전화 상담</a>
+  <a class="kakao" href="https://pf.kakao.com/_ixfCjX/chat" target="_blank" rel="noopener" aria-label="카카오톡 채널 상담"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.5C6.75 3.5 2.5 6.86 2.5 11c0 2.65 1.75 4.98 4.4 6.3l-.9 3.3c-.08.3.26.54.52.37l3.95-2.6c.5.06 1 .1 1.53.1 5.25 0 9.5-3.36 9.5-7.5S17.25 3.5 12 3.5z"/></svg>카카오톡</a>
+  <a class="talk" href="https://talk.naver.com/ct/wio0fjr" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-7l-4.5 3.6V17H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm4 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zm4 0a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zm4 0a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg>네이버 톡톡</a>
+  <a class="mail" href="mailto:algowith@naver.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.6"/><path d="M3.8 6.5 12 13l8.2-6.5" stroke-linecap="round" stroke-linejoin="round"/></svg>이메일</a>
 </nav>
 <!-- 모바일·태블릿 상담 버튼 (2026-11-27): PC 오른쪽 빠른 메뉴가 숨는 화면에서 카카오톡·네이버 톡톡만 오른쪽 아래에 띄운다 -->
 <nav class="mfloat quick" aria-label="메신저 상담">
