@@ -432,15 +432,21 @@ section.block.ph{padding-top:0}
 .photo-head::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--img) center/cover no-repeat}
 .photo-head::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--veil1) 0%,var(--veil1) 20%,var(--veil2) 42%,var(--veil3) 66%)}
 .photo-head .wrap{padding-block:clamp(72px,10vw,128px) clamp(52px,6vw,84px)}
-/* 업무 분야: 휴대폰에서만 배경 사진을 흐리지 않은 원본 그대로 (2026-11-27 지시, PC는 기존 흐림 유지) */
-/* 휴대폰: 업무 분야·진입 경로·진행 방식은 사진 전체를 흐리지 않는다 (2026-11-27).
-   진입 경로·진행 방식은 글자 뒤에만 반투명 흐림 판, 업무 분야는 판 없이 사진 원본 위에 글자만 */
+/* 사진 머리 = 첫 화면(hero)과 같은 스타일로 통일 (2026-11-27 지시, PC·휴대폰 모두):
+   글자가 있는 왼쪽은 하얗게 흐리고 오른쪽으로 갈수록 사진 원본이 드러난다. 판·글자 그림자 없음 */
+.photo-head::after,#process .photo-head::after{background:linear-gradient(90deg,var(--veil1) 0%,var(--veil1) 22%,var(--veil2) 42%,var(--veil3) 64%)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) #process .photo-head::after{background:linear-gradient(90deg,var(--veil1) 0%,var(--veil1) 22%,var(--veil2) 42%,var(--veil3) 64%)}}
+:root[data-theme="dark"] #process .photo-head::after{background:linear-gradient(90deg,var(--veil1) 0%,var(--veil1) 22%,var(--veil2) 42%,var(--veil3) 64%)}
+/* 첫 화면처럼 제목·설명을 왼쪽 한 줄기로 쌓아, 흐림이 없는 오른쪽에는 글자가 놓이지 않게 */
+.photo-head .sh{grid-template-columns:1fr;max-width:640px;gap:22px;align-items:start}
+.photo-head .sh p{text-shadow:none !important;color:var(--ink-2);font-weight:500;max-width:32em}
+/* 휴대폰 업무 분야 설명문은 조금 작게 (2026-11-27 지시, 18px → 16px) */
+@media (max-width:760px){#fields .photo-head .sh p{font-size:16px;line-height:1.7}}
+/* 휴대폰: 글자가 화면 폭 대부분을 차지하므로 흐림을 더 길게 끌고 가다 오른쪽 끝에서 사진이 드러나게 */
 @media (max-width:760px){
-  #fields .photo-head::after,#route .photo-head::after,#process .photo-head::after{display:none}
-  #route .photo-head .sh,#process .photo-head .sh{background:rgba(255,255,255,.66);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-radius:10px;padding:20px 16px;margin-inline:-6px}
+  /* → 사용자 확정(2026-11-27): 휴대폰은 글자 덩어리를 중심으로 타원형으로 흐리고, 가장자리로 갈수록 사진 원본 */
+  .hero::after,.photo-head::after,#process .photo-head::after,:root[data-theme="dark"] #process .photo-head::after{background:radial-gradient(ellipse 85% 62% at 42% 54%,var(--veil2) 0%,var(--veil2) 45%,color-mix(in srgb,var(--veil2) 50%,transparent) 72%,var(--veil3) 100%)}  /* 가운데도 반투명(.62)으로 낮춰 사진이 비치게 (2026-11-27) */
 }
-@media (max-width:760px) and (prefers-color-scheme: dark){:root:not([data-theme="light"]) #route .photo-head .sh,:root:not([data-theme="light"]) #process .photo-head .sh{background:rgba(11,18,32,.66)}}
-@media (max-width:760px){:root[data-theme="dark"] #route .photo-head .sh,:root[data-theme="dark"] #process .photo-head .sh{background:rgba(11,18,32,.66)}}
 /* 휴대폰에서만 줄을 바꾸는 <br class="br-m"> (업무 분야 「직접 수행」을 다음 줄로) */
 .br-m{display:none}
 @media (max-width:760px){.br-m{display:inline}}.photo-head .sh{margin-bottom:0}
