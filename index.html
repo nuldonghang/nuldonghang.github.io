@@ -519,14 +519,14 @@ section.block.ph{padding-top:0}
 .mbar{display:none}
 @media (max-width:760px){
   /* 하단 바: 전화 · 카카오톡 · 네이버 톡톡 · 이메일 (2026-11-27, 「무료 진단 신청」 자리 교체) */
-  .mbar{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:25;padding-bottom:env(safe-area-inset-bottom,0);background:#fff;border-top:1px solid var(--rule);box-shadow:0 -4px 14px rgba(7,20,51,.08)}
+  /* 화면에 고정해 띄우지 않고 페이지 맨 아래(바닥글 다음)에만 나온다 (2026-11-27 지시) */
+  .mbar{display:grid;grid-template-columns:repeat(4,1fr);position:static;padding-bottom:env(safe-area-inset-bottom,0);background:#fff;border-top:1px solid var(--rule)}
   .mbar a{height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-weight:700;font-size:12.5px;letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
   .mbar svg{width:22px;height:22px}
   .mbar .call{background:#fff;color:var(--navy)}
   .mbar .kakao{background:#FEE500;color:#3A1D1D}
   .mbar .talk{background:#03C75A;color:#fff}
   .mbar .mail{background:var(--navy);color:#fff}
-  body{padding-bottom:60px}
   .quick.mfloat{display:none}  /* 휴대폰은 하단 바에 같은 버튼이 있으므로 떠 있는 버튼을 숨김 */
 }
 </style>
