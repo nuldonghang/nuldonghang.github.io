@@ -432,9 +432,10 @@ section.block.ph{padding-top:0}
 .photo-head::before{content:"";position:absolute;inset:0;z-index:-2;background:var(--img) center/cover no-repeat}
 .photo-head::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,var(--veil1) 0%,var(--veil1) 20%,var(--veil2) 42%,var(--veil3) 66%)}
 .photo-head .wrap{padding-block:clamp(72px,10vw,128px) clamp(52px,6vw,84px)}
-/* 모바일: 제목이 오른쪽 끝까지 닿아 사진과 겹치므로(예: 업무 분야 「직접」) 흐림을 오른쪽 끝까지 약하게 이어 준다 (2026-11-27) */
-@media (max-width:760px){.photo-head::after{background:linear-gradient(90deg,var(--veil1) 0%,var(--veil1) 30%,var(--veil2) 62%,var(--veil2) 100%)}}
-.photo-head .sh{margin-bottom:0}
+/* 업무 분야: 휴대폰에서만 배경 사진을 흐리지 않은 원본 그대로 (2026-11-27 지시, PC는 기존 흐림 유지) */
+@media (max-width:760px){#fields .photo-head::after{display:none}}/* 휴대폰에서만 줄을 바꾸는 <br class="br-m"> (업무 분야 「직접 수행」을 다음 줄로) */
+.br-m{display:none}
+@media (max-width:760px){.br-m{display:inline}}.photo-head .sh{margin-bottom:0}
 .photo-head .sh h2{color:var(--head-ink) !important}
 /* 설명글: 흰 판 없이 글자만, 사진 위에서도 읽히도록 흰 번짐 그림자 (2026-11-27) */
 .photo-head .sh p{color:var(--head-ink);font-weight:600;text-shadow:0 0 6px rgba(255,255,255,.95),0 0 14px rgba(255,255,255,.9),0 0 24px rgba(255,255,255,.8)}
@@ -733,7 +734,7 @@ section.block.ph{padding-top:0}
   <section class="block tint ph" id="fields" data-page="fields">
     <div class="photo-head" style="--img:url('https://images.unsplash.com/photo-1698653223247-09aaf01166fc?auto=format&fit=crop&w=2000&q=82')"><div class="wrap">
       <div class="sh">
-        <div><span class="no">업무 분야</span><h2><span class="kw-g">공공조달</span>을 중심으로<br>대표 행정사가 <span class="kw-g">직접 수행</span>합니다</h2></div>
+        <div><span class="no">업무 분야</span><h2><span class="kw-g">공공조달</span>을 중심으로<br>대표 행정사가<br class="br-m"> <span class="kw-g">직접 수행</span>합니다</h2></div>
         <p><b class="kw-g">입찰·계약방법</b>과 등록·인증은 물론, 조달 진입에 앞서 필요한 기업 확인과 <b class="kw-g">인허가</b>까지 함께 살펴봅니다.</p>
       </div>
     </div></div>
@@ -910,7 +911,7 @@ section.block.ph{padding-top:0}
   document.getElementById('prev').addEventListener('click',function(){list.scrollBy({left:-step(),behavior:'smooth'});});
   document.getElementById('next').addEventListener('click',function(){list.scrollBy({left:step(),behavior:'smooth'});});
 
-  // 모바일: 카드가 3.5초마다 왼쪽으로 한 장씩 넘어가며 끝없이 돈다 (2026-11-27)
+  // 모바일: 카드가 2초마다 왼쪽으로 한 장씩 넘어가며 끝없이 돈다 (2026-11-27)
   // 넘어간 첫 카드는 맨 뒤로 옮겨 붙여 계속 회전. 손으로 만지면 6초 쉬었다가 다시 돈다.
   var mq=window.matchMedia('(max-width:760px)');
   var pausedUntil=0,busy=false;
@@ -932,7 +933,7 @@ section.block.ph{padding-top:0}
       busy=false;
     },750);
   }
-  setInterval(rotate,3500);
+  setInterval(rotate,2000);  // 2초마다 한 장 (2026-11-27, 3.5초에서 빠르게)
 })();
 
 // 카카오톡: 개인 ID라 바로 대화창을 열 수 없어 ID를 복사하고 안내
