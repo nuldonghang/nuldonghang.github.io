@@ -440,6 +440,8 @@ section.block.ph{padding-top:0}
 /* 첫 화면처럼 제목·설명을 왼쪽 한 줄기로 쌓아, 흐림이 없는 오른쪽에는 글자가 놓이지 않게 */
 .photo-head .sh{grid-template-columns:1fr;max-width:640px;gap:22px;align-items:start}
 .photo-head .sh p{text-shadow:none !important;color:var(--ink-2);font-weight:500;max-width:32em}
+/* 휴대폰 블로그 머리: 사진이 어두워 같은 흐림이 약해 보이므로 한 단계 진하게 (2026-11-27, 업무 분야와 비슷한 밝기로) */
+@media (max-width:760px){#writing .photo-head::after{background:radial-gradient(ellipse 85% 62% at 42% 54%,color-mix(in srgb,var(--veil1) 86%,transparent) 0%,color-mix(in srgb,var(--veil1) 86%,transparent) 48%,var(--veil2) 74%,var(--veil3) 100%)}}
 /* 휴대폰 업무 분야 설명문은 조금 작게 (2026-11-27 지시, 18px → 16px) */
 @media (max-width:760px){#fields .photo-head .sh p{font-size:16px;line-height:1.7}}
 /* 휴대폰: 글자가 화면 폭 대부분을 차지하므로 흐림을 더 길게 끌고 가다 오른쪽 끝에서 사진이 드러나게 */
