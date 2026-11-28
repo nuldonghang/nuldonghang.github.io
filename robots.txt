@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nuldonghang.com/sitemap.xml
