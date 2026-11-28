@@ -561,6 +561,23 @@ section.block.ph{padding-top:0}
   .mbar .mail{background:var(--navy);color:#fff}
   .quick.mfloat{display:none}  /* 휴대폰은 하단 바에 같은 버튼이 있으므로 떠 있는 버튼을 숨김 */
 }
+/* ── 휴대폰 전용(760px 이하) — PC·태블릿 화면에는 영향 없음 (2026-11-28) ── */
+.m-apply{display:none}
+.m-t{display:none}
+@media (max-width:760px){
+  .contact .pc-t{display:none}
+  .contact .m-t{display:inline}
+  .nav .item.open .sub{display:none !important}          /* 단추를 눌러도 펼침 메뉴 없이 바로 이동 */
+  .js-pages main{display:flex;flex-direction:column}
+  .js-pages main > #location{order:2}                     /* 사무소 소개: 대표 소개 → MI 소개 → 찾아오시는 길 순서 */
+  #mi .mi-row{display:none}                               /* MI 소개의 로고1·로고2 칸 숨김 */
+  .contact .desk .row a[href="apply.html"]{display:none}  /* 무료 진단 신청은 연락처 아래 단추로 */
+  .contact .desk .m-apply{display:flex;flex-direction:column;gap:10px;width:100%;margin-top:22px}
+  .contact .desk .m-apply a{display:flex;align-items:center;justify-content:center;width:100%;min-height:50px;box-sizing:border-box;text-decoration:none;font-weight:700}
+  /* 진입 경로 번호를 진행 방식처럼 01·02… 큰 숫자로, 번호 아래 실선 없앰 */
+  .route li{padding:28px 0 8px}
+  .route li::before{content:"0" counter(r);font-size:34px;line-height:1;padding-bottom:0;margin-bottom:22px;border-bottom:0}
+}
 </style>
 </head>
 <body>
@@ -883,11 +900,14 @@ section.block.ph{padding-top:0}
           <a class="btn white-line" href="#location">찾아오시는 길</a>
         </div>
         <dl>
-          <div><dt>카카오톡</dt><dd><a href="https://pf.kakao.com/_ixfCjX/chat" target="_blank" rel="noopener">늘동행 행정사사무소 채널</a></dd></div>
+          <div><dt>카카오톡</dt><dd><a href="https://pf.kakao.com/_ixfCjX/chat" target="_blank" rel="noopener"><span class="pc-t">늘동행 행정사사무소 채널</span><span class="m-t">카카오톡으로 문의하기</span></a></dd></div>
           <div><dt>네이버 톡톡</dt><dd><a href="https://talk.naver.com/ct/wio0fjr" target="_blank" rel="noopener">톡톡으로 문의하기</a></dd></div>
           <div><dt>이메일</dt><dd>algowith@naver.com</dd></div>
           <div><dt>사업자등록번호</dt><dd>635-08-03570</dd></div>
         </dl>
+        <div class="m-apply">
+          <a class="btn white" href="apply.html">무료 진단 신청하기</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1011,13 +1031,17 @@ section.block.ph{padding-top:0}
   if(!parts.length)return;
   root.classList.add('js-pages');
   var links=[].slice.call(document.querySelectorAll('.nav .item > a[href^="#"]'));
+  var mob=window.matchMedia('(max-width:760px)');
   function show(hash,jump){
     var id=(hash||'').replace('#','');
     var target=id?document.getElementById(id):null;
     var page=target&&target.getAttribute('data-page')?target.getAttribute('data-page'):(target&&target.closest('[data-page]')?target.closest('[data-page]').getAttribute('data-page'):'home');
     if(id==='top')page='home';
-    parts.forEach(function(s){s.classList.toggle('on',s.getAttribute('data-page')===page);});
-    if(page==='location'&&window.__drawMap)setTimeout(window.__drawMap,0);
+    // 휴대폰(760px 이하): 「사무소 소개」「업무 분야」는 묶인 세부 페이지를 한 화면에 이어서 보여 줌
+    var grp=[page];
+    if(mob.matches)links.forEach(function(a){var own=(a.getAttribute('data-pages')||'').split(' ');if(own.indexOf(page)>=0)grp=own;});
+    parts.forEach(function(s){s.classList.toggle('on',grp.indexOf(s.getAttribute('data-page'))>=0);});
+    if(grp.indexOf('location')>=0&&window.__drawMap)setTimeout(window.__drawMap,0);
     links.forEach(function(a){
       var s=document.querySelector(a.getAttribute('href'));
       var own=(a.getAttribute('data-pages')||'').split(' ');   // 「사무소 소개」는 대표 소개 페이지에서도 켜짐
@@ -1051,7 +1075,7 @@ section.block.ph{padding-top:0}
     var top=it.querySelector(':scope > a'), sub=it.querySelector('.sub');
     if(!top||!sub)return;
     top.addEventListener('click',function(e){
-      if(!narrow.matches)return;
+      if(!narrow.matches||mob.matches)return;   // 휴대폰은 펼침 없이 바로 해당 페이지(세부 페이지 연속)로 이동
       e.preventDefault();e.stopPropagation();
       var willOpen=!it.classList.contains('open');
       closeAll(it);it.classList.toggle('open',willOpen);
