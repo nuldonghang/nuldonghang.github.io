@@ -390,6 +390,7 @@
       <div class="src">
         데이터 출처: 조달청 나라장터 오픈API, 한국산업단지공단 팩토리온 공장등록정보
       </div>
+      <div class="src">이 페이지는 방문 통계를 위해 네이버 애널리틱스와 구글 애널리틱스를 사용합니다.</div>
     </div>
     <div>
       <div class="tel">010-7702-8496</div>
@@ -491,6 +492,20 @@
     }
   });
 })();
+</script>
+<!-- 구글 애널리틱스 (방문 통계) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J59RKBS5BR"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-J59RKBS5BR');
+</script><!-- 네이버 애널리틱스 (방문 통계) -->
+<script src="https://wcs.naver.net/wcslog.js"></script>
+<script>
+if(!wcs_add) var wcs_add = {};
+wcs_add["wa"] = "1fddbdc3081eab0";
+if(window.wcs) { wcs_do(); }
 </script>
 </body>
 </html>
